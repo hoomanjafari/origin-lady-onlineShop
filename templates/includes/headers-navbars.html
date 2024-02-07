@@ -1,0 +1,98 @@
+<!-- ------------------------( header-onScroll )------------------------ -->
+
+<header class="header-onScroll"
+        id="header-onScroll">
+    <div class="header-onScroll-site-name">
+        <a href="#">
+            <img src="/static/images/photo_2024-01-24_03-01-10.jpg">
+            <p class="main-header-site-name-p">تمامی اجناس اورجینال هستند</p>
+        </a>
+    </div>
+    <ul>
+        <li class="header-onScroll-login"><a href="#"><a href="#">ثبت نام / ورود <i class="fa fa-user"></i></a></a>
+        </li>
+        <li><a href="#">ارتباط با ما</a></li>
+        <li><a href="#">درباره ما</a></li>
+        <li class="clothes-dropBtn">
+            <a href="#">لباس ها</a> <i class="fa fa-caret-down"></i>
+            <div class="clothes-dropdown-content">
+                <a href="#">link 1</a>
+                <a href="#">link 2</a>
+                <a href="#">link 3</a>
+                <a href="#">link 4</a>
+                <a href="#">link 5</a>
+                <a href="#">link 6</a>
+            </div>
+        </li>
+
+        <li class="clothes-dropBtn">
+            <a href="#">جواهرات</a> <i class="fa fa-caret-down"> </i>
+            <div class="clothes-dropdown-content">
+                <a href="#">link 1</a>
+                <a href="#">link 2</a>
+                <a href="#">link 3</a>
+                <a href="#">link 4</a>
+                <a href="#">link 5</a>
+                <a href="#">link 6</a>
+            </div>
+        </li>
+        <li class="search-bag-icon">
+            <button class="slid-card-openBtn" type="button" onclick="SlidCardOpenBtn()"><i
+                    class="fa fa-shopping-bag"></i></button>
+            <a href="#"><i class="fa fa-search"></i></a>
+        </li>
+    </ul>
+</header>
+
+<!-- ------------------------( responsive-fixed-nav )------------------------ -->
+
+<div class="clear-fixed"></div>
+<nav class="responsive-fixed-nav" id="responsive-fixed-nav">
+    <button onclick="menuBars()"><i class="fa fa-bars"></i></button>
+    <ul>
+        <li><button type="button" onclick="SlidCardOpenBtn()"><i class="fa fa-shopping-bag"></i></button></li>
+        <li><a href="#"><i class="fa fa-search"></i></a></li>
+    </ul>
+</nav>
+<div class="clear-fixed"></div>
+
+<!-- ------------------------( responsive-menu-header )------------------------ -->
+
+<div class="bg-dark" id="bg-dark"></div>
+<header class="responsive-header" id="responsive-header">
+    <nav>
+        <button class="window-close-btn" onclick="closeMenuBar()"><i class="fa fa-window-close"></i></button>
+        <ul>
+            <div class="responsive-logo">
+                <img src="/static/images/photo_2024-01-24_03-01-10.jpg">
+            </div>
+            <li><a href="#">درباره ما</a></li>
+            <li><a href="#">ارتباط با ما</a></li>
+            <li><a href="#">درباره ما</a></li>
+            <li class="">
+                <button class="responsive-clothes-dropBtn" onclick="clothDropDown()">لباس ها</button> <i
+                    class="fa fa-caret-down"></i>
+                <div class="responsive-clothes-dropDown-content" id="responsive-clothes-dropDown-content">
+                    <a href="#">link 1</a>
+                    <a href="#">link 2</a>
+                    <a href="#">link 3</a>
+                    <a href="#">link 4</a>
+                    <a href="#">link 5</a>
+                    <a href="#">link 6</a>
+                </div>
+            </li>
+            <li class="">
+                <button class="responsive-accessory-dropBtn" onclick="accessoryDropDown()">جواهرات</button> <i
+                    class="fa fa-caret-down"> </i>
+                <div class="responsive-accessory-dropDown-content" id="responsive-accessory-dropDown-content">
+                    <a href="#">link 1</a>
+                    <a href="#">link 2</a>
+                    <a href="#">link 3</a>
+                    <a href="#">link 4</a>
+                    <a href="#">link 5</a>
+                    <a href="#">link 6</a>
+                </div>
+            </li>
+        </ul>
+    </nav>
+</header>

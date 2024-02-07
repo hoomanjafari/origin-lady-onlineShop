@@ -1,0 +1,369 @@
+* {
+    margin: 0;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+a {
+    text-decoration: none;
+}
+
+
+.clear-fixed {
+    clear: both;
+}
+
+.border-middle-text {
+    border-top: 3px solid #8F080F;
+    display: flex;
+    justify-content: center;
+    width: 96%;
+    margin: 0 auto;
+}
+
+.border-middle-text p {
+    margin-top: -2vw;
+    background-color: white;
+    width: 39vw;
+}
+
+/* =============================( content-cate-list )================================================ */
+
+.content {
+    padding-top: 20vw;
+    padding-bottom: 6vw;
+}
+
+.cate-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-bottom: 6vw;
+}
+
+.cate-list-item {
+    margin: 1vw 4vw;
+    font-size: 1.3vw;
+    font-weight: 600;
+    width: 12vw;
+    height: 16vw;
+    text-align: center;
+}
+
+.cate-list-item:hover {
+    opacity: 60%;
+    transform: scale(1.05);
+    transition: 0.2s;
+}
+
+.cate-list-item a {
+    color: #8F080F;
+}
+
+.cate-list-item img {
+    width: 9.9vw;
+    height: 9.9vw;
+    image-orientation: flip;
+    border-radius: 15vw;
+    margin-bottom: 1vw;
+
+}
+
+.cate-list-p {
+    text-align: center;
+    font-size: 2.6vw;
+    font-weight: 600;
+    color: #8F080F;
+    padding-bottom: 3vw;
+}
+
+@media (max-width: 768px) {
+    .content {
+        padding-top: 26vw;
+    }
+
+    .cate-list {
+        width: 90vw;
+        padding-left: 6vw;
+    }
+
+    .cate-list-item {
+        margin-bottom: 19vw;
+        font-size: 3vw;
+        width: 16vw;
+        height: 17vw;
+    }
+
+    .cate-list-item img {
+        width: 16vw;
+        height: 16vw;
+    }
+
+    .cate-list-p {
+        font-size: 4vw;
+    }
+
+    .border-middle-text p {
+        margin-top: -3vw;
+    }
+}
+
+/* =============================( content-swiper-new-products and swiper-discount-product )===================================== */
+
+.swiper {
+    margin-bottom: 6vw;
+    border-radius: 1vw;
+}
+
+.swiper-slide {
+    text-align: center;
+    font-size: 18px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 3vw;
+}
+
+.quick-add {
+    position: absolute;
+    bottom: 9.6vw;
+    padding-left: 1vw;
+    border-radius: 3vw;
+    z-index: 10;
+    font-size: 2vw;
+    background-color: #8F080F;
+    width: 15vw;
+    height: 0;
+    overflow: hidden;
+}
+
+.quick-add:hover {
+    background: #B08F90;
+    transition: 0.2s;
+}
+
+.swiper-slide a {
+    color: white;
+}
+
+.swiper-slide h1 {
+    padding: 2vw 0;
+}
+
+.swiper-slide p {
+    font-size: 1.3vw;
+}
+
+.swiper-slide h1 {
+    font-size: 2.3vw;
+}
+
+.swiper-slide img {
+    width: 16vw;
+    height: 24vw;
+}
+
+.swiper-slide-item {
+    display: inline-block;
+    padding-top: 4vw;
+}
+
+
+.swiper-new-products-p {
+    font-size: 2.6vw;
+    font-weight: 600;
+    text-align: center;
+    color: #8F080F;
+}
+
+.swiper-button-next,
+.swiper-button-prev {
+    background-color: #8F080F;
+    color: white !important;
+    padding: 1vw;
+    border-radius: 5vw;
+    --swiper-navigation-size: 30px !important;
+}
+
+.swiper-button-next:hover,
+.swiper-button-prev:hover {
+    opacity: 60%;
+}
+
+.swiper-discount-product {
+    padding-top: 2vw;
+}
+
+.sale-icon {
+    width: 6vw;
+    height: 6vw;
+    position: absolute;
+    top: 1vw;
+    left: 1vw;
+}
+
+.sale-icon img {
+    width: 100% !important;
+    height: 100% !important;
+    border-radius: 1vw;
+    object-fit: cover;
+}
+
+
+@media (max-width: 768px) {
+    .sale-icon {
+        left: -0.5vw;
+    }
+
+    .swiper-new-products-p {
+        font-size: 4vw;
+    }
+
+    .swiper-slide h1 {
+        font-size: 3.9vw;
+    }
+
+    .swiper-slide p {
+        font-size: 3.3vw;
+    }
+
+    .swiper-slide img {
+        width: 29vw;
+        height: 39vw;
+    }
+
+    .swiper-slide-item {
+        padding-bottom: 6vw;
+    }
+
+    .swiper-button-next,
+    .swiper-button-prev {
+        background: none;
+        color: #8F080F !important;
+    }
+}
+
+@media (max-width: 600px) {
+    .sale-icon {
+        left: 3vw;
+        width: 9vw;
+        height: 9vw;
+    }
+}
+
+@media (min-width: 1200px) {
+    .swiper-slide-item:hover .quick-add {
+        height: 3vw;
+        transition: 0.3s;
+    }
+
+    .swiper-slide-item img:hover {
+        transform: scale(1.06);
+        transition: 2s;
+    }
+}
+
+/* =============================( content-aboutUs )================================================ */
+
+.content-aboutUs {
+    position: relative;
+    height: 30vw;
+    padding: 4vw;
+}
+
+.object-rightSide {
+    text-align: right;
+    position: absolute;
+    right: 16vw;
+    overflow: hidden;
+    width: 0;
+    transition: 0.3s;
+}
+
+.object-rightSide img {
+    width: 20vw;
+    height: 20vw;
+    border-radius: 12vw;
+}
+
+.object-leftSide {
+    width: 0;
+    height: 24vw;
+    position: absolute;
+    left: 16vw;
+    font-size: 2vw;
+    display: flex;
+    overflow: hidden;
+    transition: 0.3s;
+}
+
+.object-leftSide p {
+    text-align: center;
+    color: #8F080F;
+    font-weight: 600;
+    line-height: 3vw;
+}
+
+.aboutUs-text-border {
+    width: 4vw;
+    height: 100%;
+    background-image: linear-gradient(to bottom, #BBBBBB, #8F080F);
+    margin-right: 2vw;
+}
+
+/* =============================( index-contact )================================================ */
+
+.index-contact {
+    padding: 4vw;
+    text-align: center;
+}
+
+.index-contact p {
+    font-size: 2vw;
+    margin-bottom: 3vw;
+    color: #8F080F;
+}
+
+.index-contact label {
+    font-size: 1.5vw;
+    font-weight: 600;
+    color: white;
+}
+
+.index-contact form {
+    background-image: linear-gradient(to right, #BBBBBB, #B08F90, #A56265, #9A353A);
+    width: 40vw;
+    margin: 0 auto;
+    padding: 3vw;
+    border-radius: 1vw;
+}
+
+.index-contact input {
+    display: block;
+    width: 30vw;
+    padding: 1vw;
+    font-size: 1.5vw;
+    margin: 1vw auto;
+    border-radius: 3vw;
+    border: none;
+    outline: 0;
+}
+
+.index-contact button {
+    font-size: 2vw;
+    padding: 0.6vw 2vw;
+    border-radius: 3vw;
+    background-color: #8F080F;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+.index-contact button:hover {
+    opacity: 60%;
+}
+
+@media (max-width: 768px) {
+    .index-contact p {
+        font-size: 3vw;
+    }
+}
