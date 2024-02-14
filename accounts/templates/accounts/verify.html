@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/css_files/verify.css">
+    <link rel="stylesheet" href="/static/css_files/messages.css">
+    <link rel="stylesheet" href="/static/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+    <title>تأیید شماره موبایل</title>
+</head>
+
+<body>
+    {% include 'includes/messages.html' %}
+    <main class="register-main">
+        <div class="register-form-container">
+            <div class="register-form-box">
+                <div class="register-logo-img">
+                    <img src="/static/images/photo_2024-01-24_03-01-10.jpg">
+                </div>
+                <p class="verify-number-p">(کد ارسال شده به : <span>{{ mobile }}</span> )</p>
+                <p class="register-p">کد را وارد کنید</p>
+                <form method="post">
+                    {% csrf_token %}
+                    <div id="inputs" class="inputs">
+                        <input class="otp-input" type="number" inputmode="numeric" name="otp_1" maxlength="1"
+                        oninput="if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);">
+                        <input class="otp-input" type="number" inputmode="numeric" name="otp_2" maxlength="1"
+                        oninput="if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);">
+                        <input class="otp-input" type="number" inputmode="numeric" name="otp_3" maxlength="1"
+                        oninput="if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);">
+                        <input class="otp-input" type="number" inputmode="numeric" name="otp_4" maxlength="1"
+                        oninput="if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);">
+                    </div>
+                    <p class="otp-expiration">  اعتبار کد تا <span id="timer"></span></p>
+                    <a class="resend-otp" id="resend-otp" href="{% url 'accounts:register' %}">ارسال مجدد کد</a>
+                    <button class="" id="verify-otp" type="submit">تایید کد</button>
+                </form>
+                <a class="register-go-homeBtn" href="{% url 'index:go_home' %}">برگرد به صفحه نخست</a>
+            </div>
+        </div>
+    </main>
+    <script language="javascript" src="/static/js_files/verify.js"></script>
+</body>
+
+</html>

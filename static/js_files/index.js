@@ -16,9 +16,9 @@ var lastScrollTopI = 0;
 window.addEventListener('scroll', function () {
   var st = document.documentElement.scrollTop;
   if (st < lastScrollTopI) {
-    document.getElementById('responsive-fixed-nav').style.height = '13vw'
+    document.getElementById('responsive-fixed-nav').style.top = '0'
   } else {
-    document.getElementById('responsive-fixed-nav').style.height = '0'
+    document.getElementById('responsive-fixed-nav').style.top = '-13vw'
   }
   lastScrollTopI = st;
 }, false)

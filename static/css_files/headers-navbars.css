@@ -57,8 +57,56 @@
 .header-onScroll li {
     display: inline-block;
     margin: 0 3vw;
+    font-size: 1.5vw;
+    font-weight: 600;
+}
+
+.user_authenticated_id {
+    background-color: #8F080F;
+    padding: 0.3vw 1vw;
+    border-radius: 1vw 1vw 0 0;
+    cursor: pointer;
+    position: relative;
+}
+
+.user_authenticated_id:hover .profile-logout-content {
+    height: 9vw;
+    transition: 0.3s;
+}
+
+.user_authenticated_id i {
+    margin-left: 1vw;
+    font-size: 1.5vw;
+}
+
+.user_authenticated_id p {
     font-size: 1.3vw;
     font-weight: 600;
+    color: white !important;
+}
+
+.profile-logout-content {
+    position: absolute;
+    left: 0;
+    width: 9vw;
+    padding: 0 1vw;
+    background-color: #8F080F;
+    border-radius: 0 0 1vw 1vw;
+    height: 0;
+    overflow: hidden;
+}
+
+.profile-logout-content a {
+    color: white !important;
+    font-weight: 600;
+    font-size: 1.1vw;
+    padding: 1.4vw;
+    display: block;
+    border-bottom: 2px solid white;
+}
+
+.profile-logout-content a:hover {
+    color: black !important;
 }
 
 .header-onScroll a {
@@ -71,12 +119,6 @@
     border-radius: 2vw;
     padding: 0 1vw;
 }
-
-.header-onScroll-login:hover {
-    opacity: 60%;
-}
-
-
 
 .header-onScroll-login a,
 .header-onScroll-login i {
@@ -126,18 +168,32 @@
 .responsive-fixed-nav {
     background-image: linear-gradient(to right, #BBBBBB, #B08F90, #A56265, #9A353A);
     position: fixed;
+    top: 0;
     width: 100%;
     height: 13vw;
-    overflow: hidden;
     display: none;
     z-index: 8;
-    transition: 0.2s;
+    transition: 0.3s;
 }
 
 .responsive-fixed-nav ul {
     list-style: none;
     padding: 0 6vw;
     float: right;
+}
+
+.fixed-nav-login-register {
+    background-color: #BBBBBB;
+    color: black !important;
+    font-weight: 600;
+    font-size: 4.4vw !important;
+    padding: 0.5vw 2vw !important;
+    border-radius: 1vw;
+}
+
+.fixed-nav-login-register a {
+    margin: 0 3vw;
+    font-weight: 600;
 }
 
 .responsive-fixed-nav li {
@@ -155,6 +211,13 @@
     border: none;
     font-size: 6vw;
     padding: 3vw;
+}
+
+.fixed-nav-user_authenticated_id {
+    background-color: #8F080F;
+    color: white !important;
+    padding: 1vw 9vw !important;
+    border-radius: 2vw;
 }
 
 /* ==============( responsive-header-navbar ) ========================================== */
@@ -192,8 +255,9 @@
     padding: 5vw;
     font-size: 9vw;
     font-weight: 600;
-    width: 60vw;
+    width: 70vw;
     border-bottom: 4px solid #BBBBBB;
+    color: #BBBBBB;
 }
 
 .responsive-header ul {

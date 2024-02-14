@@ -1,7 +1,6 @@
 <!-- ------------------------( header-onScroll )------------------------ -->
 
-<header class="header-onScroll"
-        id="header-onScroll">
+<header class="header-onScroll" id="header-onScroll">
     <div class="header-onScroll-site-name">
         <a href="#">
             <img src="/static/images/photo_2024-01-24_03-01-10.jpg">
@@ -9,8 +8,20 @@
         </a>
     </div>
     <ul>
-        <li class="header-onScroll-login"><a href="#"><a href="#">ثبت نام / ورود <i class="fa fa-user"></i></a></a>
-        </li>
+        {% if not request.user.is_authenticated %}
+            <li class="header-onScroll-login">
+                <a href="{% url 'accounts:register' %}">ثبت نام</a> /
+                <a href="{% url 'accounts:login' %}">ورود</a>
+            </li>
+        {% else %}
+            <div class="user_authenticated_id">
+                <p>{{ request.user.mobile }} <i class="fa fa-user"></i></p>
+                <div class="profile-logout-content">
+                    <a href="#">حساب کاربری</a>
+                    <a href="{% url 'accounts:logout' %}">خروج از حساب</a>
+                </div>
+            </div>
+        {% endif %}
         <li><a href="#">ارتباط با ما</a></li>
         <li><a href="#">درباره ما</a></li>
         <li class="clothes-dropBtn">
@@ -50,6 +61,16 @@
 <nav class="responsive-fixed-nav" id="responsive-fixed-nav">
     <button onclick="menuBars()"><i class="fa fa-bars"></i></button>
     <ul>
+        {% if not request.user.is_authenticated %}
+            <li class="fixed-nav-login-register">
+                <a href="{% url 'accounts:register' %}">ثبت نام</a> /
+                <a href="{% url 'accounts:login' %}">ورود</a>
+            </li>
+        {% elif request.user.is_authenticated %}
+            <li class="fixed-nav-user_authenticated_id">
+                <p>{{ request.user.mobile }} <i class="fa fa-user"></i></p>
+            </li>
+        {% endif %}
         <li><button type="button" onclick="SlidCardOpenBtn()"><i class="fa fa-shopping-bag"></i></button></li>
         <li><a href="#"><i class="fa fa-search"></i></a></li>
     </ul>
@@ -66,7 +87,11 @@
             <div class="responsive-logo">
                 <img src="/static/images/photo_2024-01-24_03-01-10.jpg">
             </div>
-            <li><a href="#">درباره ما</a></li>
+            {% if request.user.is_authenticated %}
+            <li><a href="{% url 'accounts:logout' %}">خروج از حساب</a> | <a href="#">حساب کاربری</a></li>
+            {% else %}
+            <li><a href="{% url 'accounts:register' %}">ثبت نام</a> | <a href="{% url 'accounts:login' %}">ورود</a> </li>
+            {% endif %}
             <li><a href="#">ارتباط با ما</a></li>
             <li><a href="#">درباره ما</a></li>
             <li class="">

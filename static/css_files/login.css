@@ -1,0 +1,147 @@
+* {
+    margin: 0;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+/* ====================================================== */
+
+.register-main {
+    background-color: #f0f0f0;
+}
+
+.register-form-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 7vw 0;
+}
+
+.register-form-box {
+    /* background-image: linear-gradient(to right, #BBBBBB, #B08F90, #A56265, #9A353A);; */
+    background-color: white;
+    padding: 2vw;
+    border-radius: 1vw;
+}
+
+.register-form-box img {
+    width: 9vw;
+    border-radius: 6vw;
+}
+
+.register-form-box label {
+    font-size: 1.6vw;
+    font-weight: 600;
+    color: #8F080F;
+}
+
+.register-logo-img {
+    text-align: center;
+}
+
+.register-p {
+    font-size: 1.6vw;
+    padding: 2vw;
+    font-weight: 600;
+    color: #8F080F;
+}
+
+.register-form-box form {
+    text-align: center;
+}
+
+.register-form-box input {
+    width: 40vw;
+    display: block;
+    font-size: 1.6vw;
+    font-weight: 600;
+    padding: 0.5vw;
+    color: #8F080F;
+    border: 1px solid #8F080F;
+    border-radius: 0.5vw;
+    outline: none;
+}
+
+.register-form-box input::-webkit-outer-spin-button,
+.register-form-box input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+}
+
+.register-form-box button {
+    background-color: #8F080F;
+    color: white;
+    border: none;
+    border-radius: 1vw;
+    font-size: 1.3vw;
+    font-weight: 600;
+    margin: 2vw 0;
+    padding: 0.5vw 2VW;
+    cursor: pointer;
+}
+
+.register-form-box button:hover {
+    opacity: 60%;
+}
+
+.register-go-homeBtn {
+    text-decoration: none;
+    color: #8F080F;
+    background-color: #BBBBBB;
+    font-size: 1.3vw;
+    font-weight: 600;
+    padding: 0.5vw;
+    border-radius: 1vw;
+}
+
+.register-go-homeBtn:hover {
+    opacity: 60%;
+}
+
+@media (max-width: 1025px) {
+    .register-form-container {
+        position: fixed;
+        width: 100%;
+        height: 100%;
+        background-color: #f0f0f0;
+    }
+
+    .register-form-box {
+        padding: 6vw;
+    }
+
+    .register-form-box img {
+        width: 20vw;
+        border-radius: 25vw;
+    }
+
+    .register-p {
+        font-size: 4vw;
+        padding: 6vw;
+    }
+
+    .register-form-box input {
+        width: 85vw;
+        font-size: 4vw;
+        font-weight: 600;
+        padding: 2vw;
+        border-radius: 3vw;
+    }
+
+    .register-form-box label {
+        font-size: 4vw;
+    }
+
+    .register-form-box button {
+        border-radius: 3vw;
+        font-size: 3vw;
+        margin: 3vw 0 12vw;
+        padding: 3vw 6vw;
+
+    }
+
+    .register-go-homeBtn {
+        font-size: 3vw;
+        font-weight: 600;
+        padding: 2vw;
+        border-radius: 3vw;
+    }
+}

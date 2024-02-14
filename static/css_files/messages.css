@@ -1,0 +1,48 @@
+.messages-framework {
+    position: absolute;
+    margin: 6vw;
+    padding: 1vw 4vw;
+    font-size: 1.6vw;
+    font-weight: 600;
+    color: white;
+    transition: 0.3s;
+    border-radius: 1vw;
+    z-index: 22;
+}
+
+.danger {
+    background-color: rgba(143, 8, 15, 0.8);
+}
+
+.success {
+    background-color: rgba(36, 136, 36, 0.78);
+}
+
+.animate {
+    -webkit-animation: animatezoom 0.6s;
+    animation: animatezoom 0.6s
+}
+
+@-webkit-keyframes animatezoom {
+    from {
+        -webkit-transform: scale(0)
+            /* -webkit-transform: translateY(30vw) */
+    }
+
+    to {
+        -webkit-transform: scale(1)
+            /* -webkit-transform: translateY(0) */
+    }
+}
+
+@keyframes animatezoom {
+    from {
+        transform: scale(0)
+            /* transform: translateY(30vw) */
+    }
+
+    to {
+        transform: scale(1)
+            /* transform: translateY(0) */
+    }
+}

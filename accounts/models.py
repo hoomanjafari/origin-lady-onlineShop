@@ -1,18 +1,18 @@
 from django.db import models
 from django.contrib.auth.models import AbstractUser, PermissionsMixin
-from phonenumber_field.modelfields import PhoneNumberField
 from accounts.managers import MyUserManager
 
 
 class MyUser(AbstractUser):
-    mobile = PhoneNumberField(
-        region='IR',
+    mobile = models.PositiveIntegerField(
         unique=True,
     )
 
     username = models.CharField(
         max_length=30,
         unique=True,
+        null=True,
+        blank=True
     )
 
     fullname = models.CharField(
@@ -27,12 +27,12 @@ class MyUser(AbstractUser):
         unique=True
     )
 
-    opt = models.PositiveIntegerField(
+    otp = models.PositiveIntegerField(
         blank=True,
         null=True,
     )
 
-    opt_created_time = models.DateTimeField(auto_now=True)
+    otp_created_time = models.DateTimeField(auto_now=True)
 
     objects = MyUserManager()
     USERNAME_FIELD = 'mobile'

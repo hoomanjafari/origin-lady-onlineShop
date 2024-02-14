@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/css_files/login.css">
+    <link rel="stylesheet" href="/static/css_files/messages.css">
+    <link rel="stylesheet" href="/static/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+    <title>ورود به حساب</title>
+</head>
+
+<body>
+    {% include 'includes/messages.html' %}
+    <main class="register-main">
+        <div class="register-form-container">
+            <div class="register-form-box">
+                <div class="register-logo-img">
+                    <img src="/static/images/photo_2024-01-24_03-01-10.jpg">
+                </div>
+                <p class="register-p">ورود به حساب کاربری</p>
+                <form method="post">
+                    {% csrf_token %}
+                    <label>شماره موبایل</label>
+                    <input type="text" name="mobile" placeholder="0912...">
+                    <label>رمز عبور</label>
+                    <input type="password" name="password" placeholder="123abc...">
+                    <button type="submit">ورود</button>
+                </form>
+                <a class="register-go-homeBtn" href="{% url 'index:go_home' %}">برگرد به صفحه نخست</a>
+            </div>
+        </div>
+    </main>
+
+</body>
+
+</html>

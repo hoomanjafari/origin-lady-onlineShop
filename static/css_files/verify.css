@@ -1,0 +1,215 @@
+* {
+    margin: 0;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+/* ====================================================== */
+
+.register-main {
+    background-color: #f0f0f0;
+}
+
+.register-form-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 7vw 0;
+}
+
+.register-form-box {
+    /* background-image: linear-gradient(to right, #BBBBBB, #B08F90, #A56265, #9A353A);; */
+    background-color: white;
+    padding: 2vw;
+    border-radius: 1vw;
+}
+
+.register-form-box img {
+    width: 9vw;
+    border-radius: 6vw;
+}
+
+.register-logo-img {
+    text-align: center;
+}
+
+.register-p {
+    font-size: 1.3vw;
+    font-weight: 600;
+    color: #8F080F;
+}
+
+.register-form-box form {
+    text-align: center;
+}
+
+/*.register-form-box input {*/
+/*    width: 20vw;*/
+/*    display: block;*/
+/*    font-size: 1.6vw;*/
+/*    font-weight: 600;*/
+/*    padding: 0.5vw;*/
+/*    color: #8F080F;*/
+/*    border: 1px solid #8F080F;*/
+/*    border-radius: 0.5vw;*/
+/*    outline: none;*/
+/*}*/
+
+.register-form-box input::-webkit-outer-spin-button,
+.register-form-box input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+}
+
+.register-form-box button {
+    background-color: #8F080F;
+    color: #ffffff;
+    border: none;
+    border-radius: 1vw;
+    font-size: 1.3vw;
+    font-weight: 600;
+    margin: 2vw 0;
+    padding: 0.5vw 3vw;
+    cursor: pointer;
+    /*pointer-events: none;*/
+}
+
+/*.button_active {*/
+/*    pointer-events: fill !important;*/
+/*    cursor: pointer !important;*/
+/*    background-color: #8F080F !important;*/
+/*    color: white !important;*/
+/*}*/
+
+.register-form-box button:hover {
+    opacity: 60%;
+}
+
+.register-go-homeBtn {
+    text-decoration: none;
+    color: #8F080F;
+    background-color: #BBBBBB;
+    font-size: 1.1vw;
+    font-weight: 600;
+    padding: 0.5vw;
+    border-radius: 1vw;
+}
+
+.register-go-homeBtn:hover {
+    opacity: 60%;
+}
+
+.verify-number-p {
+    font-size: 1.2vw;
+    font-weight: 600;
+    padding: 2vw 0;
+}
+
+.otp-expiration {
+    font-size: 1.6vw;
+    font-weight: 600;
+    color: #8F080F;
+    padding: 1vw 0 0;
+}
+
+.resend-otp {
+    text-decoration: none;
+    display: block;
+    font-weight: 600;
+    color: #BBBBBB;
+    pointer-events: none;
+}
+.resend-otp-activate {
+    pointer-events: fill !important;
+    color: #6c6cff !important;
+    margin-top: 1vw;
+}
+.otp-input {
+    width: 40px;
+    border: none;
+    border-bottom: 3px solid rgba(0, 0, 0, 0.5);
+    margin: 0 10px;
+    text-align: center;
+    font-size: 36px;
+    /*cursor: not-allowed;*/
+    /*pointer-events: none;*/
+}
+
+.otp-input:focus {
+    border-bottom: 3px solid orange;
+    outline: none;
+}
+
+/*.otp-input:nth-child(1) {*/
+/*    cursor: pointer;*/       /* this is for just the first input be clickable
+/*    pointer-events: all;*/
+/*}*/
+
+@media (max-width: 1025px) {
+    .register-form-container {
+        position: fixed;
+        width: 100%;
+        height: 100%;
+        background-color: #f0f0f0;
+    }
+
+    .register-form-box {
+        padding: 6vw;
+    }
+
+    .register-form-box img {
+        width: 20vw;
+        border-radius: 25vw;
+    }
+
+    .register-p {
+        font-size: 3.6vw;
+        padding: 6vw 0;
+    }
+
+    .register-form-box input {
+        width: 85vw;
+        font-size: 4vw;
+        font-weight: 600;
+        padding: 2vw;
+        border-radius: 3vw;
+    }
+
+    .register-form-box button {
+        border-radius: 3vw;
+        font-size: 3vw;
+        margin: 3vw 0 12vw;
+        padding: 1vw 4vw;
+
+    }
+
+    .register-go-homeBtn {
+        font-size: 3vw;
+        font-weight: 600;
+        padding: 2vw 3vw;
+        border-radius: 3vw;
+    }
+
+    .verify-number-p {
+        font-size: 3vw;
+        font-weight: 600;
+        padding: 2vw 0;
+    }
+
+    .otp-expiration {
+        font-size: 3vw;
+        padding: 3vw;
+    }
+
+    .otp-input {
+        width: 10px !important;
+        border: none;
+        border-radius: 0 !important;
+        border-bottom: 3px solid rgba(0, 0, 0, 0.5);
+        margin: 0 10px;
+        text-align: center;
+        font-size: 10px;
+    }
+
+    .resend-otp  {
+        font-size: 3vw;
+    }
+}

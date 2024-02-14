@@ -136,3 +136,5 @@ AUTHENTICATION_BACKENDS = [
     'django.contrib.auth.backends.ModelBackend',
     'accounts.authentication.MobileAuthentication',
 ]
+
+SESSION_COOKIE_AGE = 5 * 60
