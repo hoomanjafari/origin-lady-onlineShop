@@ -22,7 +22,7 @@
                 <form method="post">
                     {% csrf_token %}
                     <input type="number" name="mobile" placeholder="0912 ...">
-                    <button type="submit">ارسال کد یکبار مصرف</button>
+                    <button type="submit" onclick="localStorage.clear()">ارسال کد یکبار مصرف</button>
                 </form>
                 <a class="register-go-homeBtn" href="{% url 'index:go_home' %}">برگرد به صفحه نخست</a>
             </div>

@@ -1,8 +1,5 @@
 from django.shortcuts import render, redirect
-from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib import messages
-from django.core.exceptions import ValidationError
-from json import dumps
 from django.views import View
 from django.contrib.auth import login, authenticate, logout
 from .models import MyUser
@@ -26,7 +23,7 @@ class RegisterView(View):
             try:
                 user = MyUser.objects.get(mobile=cd['mobile'])
                 expiration_time_left = my_otp_ghasedak.time_left(user.mobile)
-                if not my_otp_ghasedak.check_expiration(cd['mobile']):
+                if not my_otp_ghasedak.check_expiration(cd['mobile']) and user.is_active is False:
                     otp = my_otp_ghasedak.otp_random()
                     user.otp = otp
                     user.save()
@@ -35,8 +32,12 @@ class RegisterView(View):
                     # request.session['user_otp'] = otp # it was needed for passing this value to js
                     print('otp is :', otp)
                     return redirect('accounts:verify')
-                messages.error(request, f'برای ارسال مجدد باید کد قبلی منضی شود ({expiration_time_left} ثانیه باقیمانده)', 'danger')
-                return redirect('accounts:register')
+                elif my_otp_ghasedak.check_expiration(cd['mobile']) and user.is_active is False:
+                    messages.error(request, f'برای ارسال مجدد باید کد قبلی منضی شود ({expiration_time_left} ثانیه باقیمانده)', 'danger')
+                    return redirect('accounts:register')
+                elif user.is_active is True:
+                    messages.error(request, 'شما قبلا ثبت نام کردین اگر رمز ورود خود را فراموش کردین از ( فراموشی رمز عبور ) استفاده کنید', 'danger')
+                    return redirect('accounts:login')
             except MyUser.DoesNotExist:
                 otp = my_otp_ghasedak.otp_random()
                 MyUser.objects.create_user(mobile=cd['mobile'], is_active=False, otp=otp)
@@ -78,7 +79,6 @@ class VerifyView(View):
                 return redirect('accounts:verify')
 
             elif not my_otp_ghasedak.check_expiration(mobile):
-                # request.session['user_mobile'] = ''
                 del request.session['user_mobile']
                 messages.error(request, 'کد وارد شده منقضی شده است ... مجدد درخواست کد جدید کنید', 'danger')
                 return redirect('accounts:register')

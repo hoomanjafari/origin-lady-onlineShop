@@ -17,24 +17,25 @@ if (targetTime == null && currentTime == null) {
 if (!checkComplete()) {
     interval = setInterval(checkComplete, 1000);
 }
-
 function checkComplete() {
     if (currentTime > targetTime) {
         clearInterval(interval);
         // alert("Time is up")
         document.getElementById('resend-otp').classList.add('resend-otp-activate');
         document.querySelector('.otp-expiration').style.display = 'none';
-        localStorage.clear();
     } else {
         currentTime = new Date();
-        document.getElementById('resend-otp').classList.remove('resend-otp-activate')
+        document.getElementById('resend-otp').classList.remove('resend-otp-activate');
         document.getElementById('timer').innerHTML = parseInt((targetTime - currentTime) / 1000) + ' ثانیه ';
     }
 }
-
 document.onbeforeunload = function () {
     localStorage.setItem('currentTime', currentTime);
 }
+
+// window.addEventListener('beforeunload', function () {
+//     localStorage.clear()                                 // with this we can clear the localstorage when
+// });                                                         user leaves the page
 
 // =================================( otp-expiration-timer reset on refreshing page )========================
 
