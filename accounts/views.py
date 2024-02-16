@@ -1,5 +1,6 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib import messages
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views import View
 from django.contrib.auth import login, authenticate, logout
 from .models import MyUser
@@ -139,3 +140,12 @@ class LogoutView(View):
     def get(self, request):
         logout(request)
         return redirect('index:go_home')
+
+
+class ProfileView(View, LoginRequiredMixin):
+    def get(self, request, *args, **kwargs):
+        user = get_object_or_404(MyUser, pk=kwargs['pk'])
+        return render(request, 'accounts/profile.html', {'user': user})
+
+    def post(self, request, *args, **kwargs):
+        pass

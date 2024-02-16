@@ -137,4 +137,4 @@ AUTHENTICATION_BACKENDS = [
     'accounts.authentication.MobileAuthentication',
 ]
 
-SESSION_COOKIE_AGE = 5 * 60
+# SESSION_COOKIE_AGE = 5 * 60  #this code also logout users too

@@ -2,7 +2,7 @@
 
 <header class="header-onScroll" id="header-onScroll">
     <div class="header-onScroll-site-name">
-        <a href="#">
+        <a href="{% url 'index:go_home' %}">
             <img src="/static/images/photo_2024-01-24_03-01-10.jpg">
             <p class="main-header-site-name-p">تمامی اجناس اورجینال هستند</p>
         </a>
@@ -17,7 +17,7 @@
             <div class="user_authenticated_id">
                 <p>{{ request.user.mobile }} <i class="fa fa-user"></i></p>
                 <div class="profile-logout-content">
-                    <a href="#">حساب کاربری</a>
+                    <a href="{% url 'accounts:profile' pk=request.user.id %}">حساب کاربری</a>
                     <a href="{% url 'accounts:logout' %}">خروج از حساب</a>
                 </div>
             </div>
@@ -88,7 +88,10 @@
                 <img src="/static/images/photo_2024-01-24_03-01-10.jpg">
             </div>
             {% if request.user.is_authenticated %}
-            <li><a href="{% url 'accounts:logout' %}">خروج از حساب</a> | <a href="#">حساب کاربری</a></li>
+            <li>
+                <a href="{% url 'accounts:logout' %}">خروج از حساب</a> |
+                <a href="{% url 'accounts:profile' pk=request.user.mobile %}">حساب کاربری</a>
+            </li>
             {% else %}
             <li><a href="{% url 'accounts:register' %}">ثبت نام</a> | <a href="{% url 'accounts:login' %}">ورود</a> </li>
             {% endif %}

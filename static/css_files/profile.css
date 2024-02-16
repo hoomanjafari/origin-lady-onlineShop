@@ -1,0 +1,466 @@
+* {
+    margin: 0;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+a {
+    text-decoration: none;
+}
+
+/* ================================================ */
+
+.white-space {
+    height: 15vw;
+    background-color: #e7e7e7;
+}
+
+.profile-detail-container {
+    /* background-image: linear-gradient(to right, #BBBBBB, #B08F90, #A56265, #9A353A); */
+    background: #e7e7e7 !important;
+    padding: 3vw;
+}
+
+.email-name {
+    background-color: white;
+    width: 88%;
+    margin-bottom: 3vw;
+    padding: 2vw;
+    border-radius: 1vw;
+}
+
+.edit-profileBtn {
+    background: none;
+    border: none;
+    color: #349DDF;
+    font-size: 2vw;
+    cursor: pointer;
+    padding-left: 2vw;
+}
+
+.email-name p,
+label,
+.address p,
+label {
+    font-size: 1.3vw;
+    font-weight: 600;
+}
+
+.address {
+    background-color: white;
+    width: 88%;
+    padding: 2vw;
+    border-radius: 1vw;
+}
+
+.name-p {
+    margin-bottom: 1vw;
+}
+
+.profile-p {
+    padding: 2vw 0;
+    font-size: 2vw;
+    font-weight: 600;
+}
+
+.profile-detail-container label {
+    color: #727272;
+}
+
+.add-addressBtn {
+    border: none;
+    border-radius: 2vw;
+    cursor: pointer;
+    color: white;
+    background-color: #349DDF;
+    padding: .5vw;
+    font-weight: 600;
+}
+
+.add-addressBtn:hover {
+    opacity: 60%;
+}
+
+.address-p {
+    padding: 0 1vw 2vw 0;
+    font-size: 2.2vw;
+    font-weight: 600;
+    display: inline-block;
+}
+
+.address-info {
+    width: 20vw;
+    display: inline-block;
+    margin: 3vw;
+}
+
+.address-info p {
+    font-size: 1.3vw;
+    line-height: 2vw;
+    font-weight: 600;
+    padding: 0.6vw;
+    border-bottom: 1px dashed black;
+}
+
+/* ========================================( edit-profile-box )======================================= */
+
+.edit-profile-container {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background-color: #bbbbbbb9;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 11;
+    /* visibility: hidden; */
+}
+
+.edit-profile-box {
+    width: 50vw;
+    background: white;
+    position: relative;
+    border-radius: 1vw;
+}
+
+.edit-profile-closeBtn,
+.add-address-box-closeBtn {
+    position: absolute;
+    right: 0;
+    margin: 1vw;
+    background: none;
+    border: none;
+    font-size: 2vw;
+    cursor: pointer;
+    color: #8F080F;
+}
+
+.edit-profile-box form {
+    padding: 1vw;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.edit-profile-box div {
+    padding: 1vw;
+}
+
+.edit-profile-p {
+    padding: 3vw;
+    font-size: 1.6vw;
+    font-weight: 600;
+    color: #8F080F;
+    text-align: center;
+}
+
+.edit-profile-box input {
+    width: 20vw;
+    padding: 0.5vw;
+    font-size: 1.6vw;
+    margin-bottom: 2vw;
+    border-radius: 1vw;
+    border: 2px solid #8F080F;
+    color: #8F080F;
+}
+
+.edit-profile-box input::-webkit-outer-spin-button,
+.edit-profile-box input::-webkit-inner-spin-button,
+.add-adress-box input::-webkit-outer-spin-button,
+.add-adress-box input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+}
+
+
+.editprofile-email-input {
+    width: 43vw !important;
+}
+
+.edit-profile-saveBtn {
+    background-color: #8F080F;
+    padding: 0.6vw;
+    border: none;
+    border-radius: 0.5vw;
+    color: white;
+    font-size: 1.6vw;
+    margin-left: 2vw;
+    cursor: pointer;
+}
+
+.edit-profile-saveBtn:hover {
+    opacity: 60%;
+}
+
+.edit-profile-box label {
+    color: #8F080F;
+}
+
+
+.animate {
+    -webkit-animation: animatezoom 0.6s;
+    animation: animatezoom 0.6s
+}
+
+@-webkit-keyframes animatezoom {
+    from {
+        -webkit-transform: scale(0)
+            /* -webkit-transform: translateY(30vw) */
+    }
+
+    to {
+        -webkit-transform: scale(1)
+            /* -webkit-transform: translateY(0) */
+    }
+}
+
+@keyframes animatezoom {
+    from {
+        transform: scale(0)
+            /* transform: translateY(30vw) */
+    }
+
+    to {
+        transform: scale(1)
+            /* transform: translateY(0) */
+    }
+}
+
+
+/* ========================================( add-address-box )======================================= */
+
+
+.add-address-container {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background-color: #bbbbbbb9;
+    justify-content: center;
+    align-items: center;
+    display: none;
+    z-index: 11;
+}
+
+.add-adress-box {
+    width: 60vw;
+    padding: 0 2vw 2vw;
+    background-color: white;
+    border-radius: 1vw;
+    position: relative;
+}
+
+.add-adress-box div {
+    margin: 1.3vw 0;
+}
+
+.add-adress-box input {
+    width: 20vw;
+    font-size: 1.4vw;
+    padding: 0.3vw;
+    border: 1px solid rgb(196, 196, 196);
+    border-radius: 0.3vw;
+    color: #8F080F;
+}
+
+.add-adress-box label {
+    color: #8F080F;
+}
+
+.add-address-p {
+    text-align: center;
+    font-size: 2vw;
+    margin-bottom: 3vw;
+    font-weight: 600;
+    color: #8F080F;
+}
+
+.save-addressBtn {
+    background-color: #8F080F;
+    padding: 0.6vw;
+    border: none;
+    border-radius: 0.5vw;
+    color: white;
+    font-size: 1.6vw;
+    margin-left: 2vw;
+    cursor: pointer;
+    display: block;
+}
+
+.save-addressBtn:hover {
+    opacity: 60%;
+}
+
+.selectize-control {
+    width: 20vw;
+    font-size: 1.4vw;
+    text-align: center;
+    font-weight: 600;
+    color: #8F080F;
+    margin-top: -1.4vw !important;
+}
+
+.item {
+    color: #8F080F;
+}
+
+.select-city {
+    width: 20vw !important;
+    font-size: 1.4vw;
+    text-align: center;
+    padding: 0.3vw;
+    border: 1px solid rgb(196, 196, 196);
+    border-radius: 0.3vw;
+    color: #8F080F;
+}
+
+.display-inlineBlock {
+    display: inline-block;
+}
+
+
+.tel-input:invalid+span::before {
+    content: "✖";
+    color: red;
+}
+
+.tel-input:valid+span::before {
+    content: "✓";
+    color: green;
+}
+
+@media (max-width: 768px) {
+
+    .email-name p,
+    .email-name label,
+    .address p,
+    .address label {
+        font-size: 6vw;
+        font-weight: 600;
+    }
+
+    .profile-p {
+        padding: 6vw 0;
+        font-size: 6vw;
+        font-weight: 600;
+    }
+
+    .name-p {
+        margin-bottom: 6vw;
+    }
+
+    .address-p {
+        font-size: 6vw;
+    }
+    
+    .address-info {
+        display: block;
+        width: 60vw;
+        margin-bottom: 26vw;
+    }
+
+    .address-info p {
+        font-size: 6vw;
+        line-height: 12vw;
+    }
+
+    .edit-profileBtn {
+        font-size: 6vw;
+        padding-left: 6vw;
+    }
+
+    .add-addressBtn {
+        border-radius: 2vw;
+        cursor: pointer;
+        padding: 2vw;
+        font-weight: 600;
+        font-size: 4vw;
+    }
+
+    .edit-profile-container {
+        align-items: start;
+    }
+
+    .edit-profile-box {
+        width: 100%;
+        padding: 3vw;
+    }
+
+    .edit-profile-closeBtn,
+    .add-address-box-closeBtn {
+        margin-right: 6vw;
+        font-size: 6vw;
+    }
+
+    .edit-profile-box form {
+        padding-top: 6vw;
+        flex-wrap: wrap;
+    }
+
+    .edit-profile-box input {
+        width: 90vw;
+        padding: 2vw;
+        font-size: 4vw;
+        margin-bottom: 2vw;
+    }
+
+    .editprofile-email-input {
+        width: 90vw !important;
+    }
+
+    .edit-profile-box label {
+        font-size: 4vw;
+    }
+
+    .edit-profile-saveBtn {
+        font-size: 4vw;
+        padding: 2vw;
+    }
+
+    .edit-profile-p {
+        padding: 1vw;
+        font-size: 5vw;
+        font-weight: 600;
+    }
+
+    .add-address-container {
+        align-items: start;
+    }
+
+    .add-adress-box {
+        width: 100%;
+        padding: 6vw;
+    }
+
+    .add-adress-box input {
+        width: 80vw;
+        font-size: 4vw;
+        padding: 2vw;
+    }
+
+    .add-adress-box label {
+        font-size: 4vw;
+    }
+
+    .selectize-control {
+        width: 85vw;
+        font-size: 4vw;
+        text-align: center;
+        font-weight: 600;
+        color: #8F080F;
+        margin-top: -1.4vw !important;
+    }
+
+    .select-city {
+        width: 85vw !important;
+        font-size: 4vw;
+        padding: 1vw;
+    }
+
+    .save-addressBtn {
+        font-size: 4vw;
+        padding: 2vw;
+        margin: 2vw 0;
+    }
+
+    .add-address-p {
+        font-size: 5vw;
+        margin-bottom: 6vw;
+    }
+}

@@ -16,9 +16,9 @@ var lastScrollTopI = 0;
 window.addEventListener('scroll', function () {
   var st = document.documentElement.scrollTop;
   if (st < lastScrollTopI) {
-    document.getElementById('responsive-fixed-nav').style.top = '0'
+    document.getElementById('responsive-fixed-nav').style.top = '0';
   } else {
-    document.getElementById('responsive-fixed-nav').style.top = '-13vw'
+    document.getElementById('responsive-fixed-nav').style.top = '-13vw';
   }
   lastScrollTopI = st;
 }, false)
@@ -29,27 +29,27 @@ window.addEventListener('scroll', function () {
   var isMobile = screen.width < 440 && screen.width > 190;
   if (isDesktop) {
     if (document.body.scrollTop > 1400 || document.documentElement.scrollTop > 1400) {
-      document.getElementById('object-leftSide').style.width = "20vw"
-      document.getElementById('object-rightSide').style.width = "20vw"
+      document.getElementById('object-leftSide').style.width = "20vw";
+      document.getElementById('object-rightSide').style.width = "20vw";
     } else {
-      document.getElementById('object-leftSide').style.width = "0"
-      document.getElementById('object-rightSide').style.width = "0"
+      document.getElementById('object-leftSide').style.width = "0";
+      document.getElementById('object-rightSide').style.width = "0";
     }
   } else if (isTablet) {
     if (document.body.scrollTop > 360 || document.documentElement.scrollTop > 360) {
-      document.getElementById('object-leftSide').style.width = "20vw"
-      document.getElementById('object-rightSide').style.width = "20vw"
+      document.getElementById('object-leftSide').style.width = "20vw";
+      document.getElementById('object-rightSide').style.width = "20vw";
     } else {
-      document.getElementById('object-leftSide').style.width = "0"
-      document.getElementById('object-rightSide').style.width = "0"
+      document.getElementById('object-leftSide').style.width = "0";
+      document.getElementById('object-rightSide').style.width = "0";
     }
   } else if (isMobile) {
     if (document.body.scrollTop > 490 || document.documentElement.scrollTop > 490) {
-      document.getElementById('object-leftSide').style.width = "20vw"
-      document.getElementById('object-rightSide').style.width = "20vw"
+      document.getElementById('object-leftSide').style.width = "20vw";
+      document.getElementById('object-rightSide').style.width = "20vw";
     } else {
-      document.getElementById('object-leftSide').style.width = "0"
-      document.getElementById('object-rightSide').style.width = "0"
+      document.getElementById('object-leftSide').style.width = "0";
+      document.getElementById('object-rightSide').style.width = "0";
     }
   }
 }, false)
@@ -147,7 +147,7 @@ const swiper = new Swiper('.swiper', {
   // },
 
   autoplay: {
-    delay: 1300,
+    delay: 6000,
     disableOnInteraction: false
   },
 });
@@ -155,7 +155,7 @@ const swiper = new Swiper('.swiper', {
 /* =============================( slid-card )================================================ */
 
 function SlidCardCloseBtn() {
-  document.getElementById('slid-card-box').style.width = '0',
+  document.getElementById('slid-card-box').style.width = '0';
     document.getElementById('slid-card-container').style.visibility = 'hidden';
 }
 
@@ -165,13 +165,13 @@ function SlidCardOpenBtn() {
   var isMobile = screen.width < 440 && screen.width > 190;
 
   if (isMobile) {
-    document.getElementById('slid-card-box').style.width = '63vw',
+    document.getElementById('slid-card-box').style.width = '63vw';
       document.getElementById('slid-card-container').style.visibility = 'visible';
   } else if (isDesktop) {
-    document.getElementById('slid-card-box').style.width = '33vw',
+    document.getElementById('slid-card-box').style.width = '33vw';
       document.getElementById('slid-card-container').style.visibility = 'visible';
   } else if (isTablet) {
-    document.getElementById('slid-card-box').style.width = '44vw',
+    document.getElementById('slid-card-box').style.width = '44vw';
       document.getElementById('slid-card-container').style.visibility = 'visible';
   }
 }
