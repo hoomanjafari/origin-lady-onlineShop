@@ -1,10 +1,9 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib import messages
-from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views import View
 from django.contrib.auth import login, authenticate, logout
-from .models import MyUser
-from .forms import RegisterForm, VerifyFrom, SetPasswordForm, LoginForm
+from .models import MyUser, UserAddress
+from .forms import (RegisterForm, VerifyFrom, SetPasswordForm, LoginForm, ProfileEditForm, UserAddressForm)
 from . import my_otp_ghasedak
 
 
@@ -102,10 +101,9 @@ class SetPasswordView(View):
         requested_user = request.session.get('user_mobile')
         if form.is_valid():
             cd = form.cleaned_data
-            user = MyUser.objects.get(mobile=requested_user)
+            user = get_object_or_404(MyUser, mobile=requested_user)
             user.set_password(cd['password'])
             user.save()
-            # request.session['user_mobile'] = ''
             del request.session['user_mobile']
             messages.success(request, 'ثبت نام با موفقیت انجام شد ', 'success')
             return redirect('index:go_home')
@@ -142,10 +140,52 @@ class LogoutView(View):
         return redirect('index:go_home')
 
 
-class ProfileView(View, LoginRequiredMixin):
+class ProfileView(View):
+    def dispatch(self, request, *args, **kwargs):
+        if not request.user.is_authenticated:
+            return redirect('accounts:login')
+        else:
+            return super().dispatch(request, *args, **kwargs)
+
     def get(self, request, *args, **kwargs):
         user = get_object_or_404(MyUser, pk=kwargs['pk'])
-        return render(request, 'accounts/profile.html', {'user': user})
+        user_address = UserAddress.objects.filter(user=user)
+        return render(request, 'accounts/profile.html', {'user': user, 'user_address': user_address})
 
     def post(self, request, *args, **kwargs):
-        pass
+        user = get_object_or_404(MyUser, pk=kwargs['pk'])
+        form = ProfileEditForm(self.request.POST, instance=user)
+        if form.is_valid():
+            form.save()
+            messages.success(request, 'تعغیرات اعمال شدن', 'success')
+        return render(request, 'accounts/profile.html', {'form': form})
+
+
+class UserAddressView(View):
+    def dispatch(self, request, *args, **kwargs):
+        if not request.user.is_authenticated:
+            return redirect('accounts:login')
+        else:
+            return super().dispatch(request, *args, **kwargs)
+
+    def post(self, request, *args, **kwargs):
+        user = get_object_or_404(MyUser, pk=request.user.id)
+        form = UserAddressForm(self.request.POST, instance=user)
+        if form.is_valid():
+            cd = form.cleaned_data
+            UserAddress.objects.create(
+                user=user,
+                name=cd['name'],
+                family=cd['family'],
+                address_mobile=cd['address_mobile'],
+                state=cd['state'],
+                city=cd['city'],
+                address=cd['address'],
+                postal_code=cd['postal_code']
+            )
+            messages.success(request, 'ادرس ذخیره شد', 'success')
+            return redirect('accounts:profile', pk=user.id)
+        else:
+            messages.error(request, 'اطلاعات وارد شده صحیح نیست لطفا با دقت بیشتر اطلاعات رو وارد کنید', 'danger')
+            print(form.errors)
+            return redirect('accounts:profile', pk=user.id)

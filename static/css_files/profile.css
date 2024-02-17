@@ -256,7 +256,7 @@ label {
     padding: 0.3vw;
     border: 1px solid rgb(196, 196, 196);
     border-radius: 0.3vw;
-    color: #8F080F;
+    color: black;
 }
 
 .add-adress-box label {
@@ -302,12 +302,16 @@ label {
 
 .select-city {
     width: 20vw !important;
-    font-size: 1.4vw;
-    text-align: center;
-    padding: 0.3vw;
     border: 1px solid rgb(196, 196, 196);
     border-radius: 0.3vw;
-    color: #8F080F;
+}
+
+.select2-container--default .select2-selection--single .select2-selection__rendered,
+.select2-results__option[aria-selected] {
+    color: black;
+    /*line-height: 28px;*/
+    font-size: 1.2vw;
+    font-weight: 600;
 }
 
 .display-inlineBlock {

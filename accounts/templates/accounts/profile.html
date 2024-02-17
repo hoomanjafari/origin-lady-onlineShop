@@ -8,14 +8,14 @@
     <link rel="stylesheet" href="/static/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="/static/css_files/slid-card.css">
     <link rel="stylesheet" href="/static/css_files/headers-navbars.css">
-    <link rel="stylesheet"
-        href="https://cdnjs.cloudflare.com/ajax/libs/selectize.js/0.12.6/css/selectize.bootstrap3.min.css"
-        integrity="sha256-ze/OEYGcFbPRmvCnrSeKbRTtjG4vGLHXgOqsyLFTRjg=" crossorigin="anonymous" />
-
+    <link rel="stylesheet" href="/static/css_files/messages.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/select2@4.0.13/dist/css/select2.min.css">
     <title>حساب کاربری</title>
 </head>
 
 <body>
+    {% include 'includes/messages.html' %}
+
     {% include 'includes/headers-navbars.html' %}
 
     {% include 'includes/slid-card-box.html' %}
@@ -26,23 +26,21 @@
                         class="fa fa-window-close"></i>
                 </button>
                 <p class="edit-profile-p">ویرایش پروفایل</p>
-                <form>
+                <form method="post">
+                    {% csrf_token %}
                     <div>
                         <label>نام و نام خانوادگی</label><br>
-                        <input type="text">
+                        <input type="text" name="fullname">
                     </div>
-                    <div>
-                        <label>شماره تماس</label><br>
-                        <input type="number">
-                    </div>
+
                     <div>
                         <label>ایمیل</label><br>
-                        <input class="editprofile-email-input" type="text">
+                        <input class="editprofile-email-input" type="email" name="email">
                     </div>
-                    <button class="edit-profile-saveBtn" type="button">ذخیره تغییرات</button>
+                    <button class="edit-profile-saveBtn" type="submit">ذخیره تغییرات</button>
                 </form>
             </div>
-        </section>
+    </section>
 
     <section class="add-address-container" id="add-address-container">
             <div class="add-adress-box animate">
@@ -50,75 +48,40 @@
                         class="fa fa-window-close"></i>
                 </button>
                 <p class="add-address-p">افزودن ادرس</p>
-                <form>
+                <form method="post" action="{% url 'accounts:address' %}">
+                    {% csrf_token %}
                     <div class="display-inlineBlock">
                         <label>نام</label><br>
-                        <input type="text">
+                        <input type="text" name="name">
                     </div>
                     <div class="display-inlineBlock">
                         <label>نام خانوادگی</label><br>
-                        <input type="text">
+                        <input type="text" name="family">
                     </div>
                     <div>
                         <label>شماره تماس</label><br>
-                        <input placeholder="0912 ..." class="tel-input" type="text" pattern="[0-9]{11}">
+                        <input placeholder="0912 ..." class="tel-input" type="text" name="address_mobile" pattern="[0-9]{11}">
                         <span></span>
                     </div>
-                    <div>
+                    <div class="ir-select">
                         <label>استان</label><br>
-                        <select class="select" placeholder="لطفا استان را انتخاب نمایید" name="state"
-                            onChange="iranwebsv(this.value);">
-                            <option value="">لطفا استان را انتخاب نمایید</option>
-                            <option value="1">تهران</option>
-                            <option value="2">گیلان</option>
-                            <option value="3">آذربایجان شرقی</option>
-                            <option value="4">خوزستان</option>
-                            <option value="5">فارس</option>
-                            <option value="6">اصفهان</option>
-                            <option value="7">خراسان رضوی</option>
-                            <option value="8">قزوین</option>
-                            <option value="9">سمنان</option>
-                            <option value="10">قم</option>
-                            <option value="11">مرکزی</option>
-                            <option value="12">زنجان</option>
-                            <option value="13">مازندران</option>
-                            <option value="14">گلستان</option>
-                            <option value="15">اردبیل</option>
-                            <option value="16">آذربایجان غربی</option>
-                            <option value="17">همدان</option>
-                            <option value="18">کردستان</option>
-                            <option value="19">کرمانشاه</option>
-                            <option value="20">لرستان</option>
-                            <option value="21">بوشهر</option>
-                            <option value="22">کرمان</option>
-                            <option value="23">هرمزگان</option>
-                            <option value="24">چهارمحال و بختیاری</option>
-                            <option value="25">یزد</option>
-                            <option value="26">سیستان و بلوچستان</option>
-                            <option value="27">ایلام</option>
-                            <option value="28">کهگلویه و بویراحمد</option>
-                            <option value="29">خراسان شمالی</option>
-                            <option value="30">خراسان جنوبی</option>
-                            <option value="31">البرز</option>
-                        </select>
+                        <select class="ir-province select-city" name="state"></select><br>
                         <label>شهر</label><br>
-                        <select class="select-city" name="city" id="city">
-                            <option value="0">...</option>
-                        </select>
+                        <select class="ir-city select-city" name="city"></select>
                     </div>
                     <div class="display-inlineBlock">
                         <label>ادرس</label><br>
-                        <input type="text">
+                        <input type="text" name="address">
                     </div>
                     <div class="display-inlineBlock">
                         <label>کد پستی</label><br>
-                        <input type="number">
+                        <input type="number" name="postal_code">
                     </div>
 
-                    <button class="save-addressBtn" type="button">ذخیره اطلاعات</button>
+                    <button class="save-addressBtn" type="submit">ذخیره اطلاعات</button>
                 </form>
             </div>
-        </section>
+    </section>
 
     <section class="profile">
         <div class="white-space"></div>
@@ -130,7 +93,9 @@
                         class="fa fa-edit"></i></button>
                 <p class="name-p">{{ user.fullname }}</p>
                 <label>شماره تماس</label><br>
-                <p>{{ user.mobile }}</p>
+                <p>+98 {{ user.mobile }}</p><br>
+                <label>ایمیل</label><br>
+                <p>{{ user.email }}</p>
             </div>
 
             <p class="address-p">ادرس ها</p>
@@ -140,36 +105,25 @@
                     <button onclick="AddAddressOpenBtn()" class="add-addressBtn" type="button">افزودن ادرس <i
                             class="fa fa-plus"></i></button>
                 </div>
-                <div class="address-info">
-                    <p>منا</p>
-                    <p>سهند</p>
-                    <p>
-                        ایران تهران منطقه غرب سمت بلوار فردوس پشت قصر شاه عباس صفوی مرد نیکو نام پسر سمیه که میشه عشق
-                        باباش
-                        در دهه ی 90 میلادی زنگ خونه مرذم رو زذ ور در رفت
-                    </p>
-                    <p>پلاک</p>
-                    <p>+98 963 969 9339</p>
-                </div>
-
-                <div class="address-info">
-                    <p>منا</p>
-                    <p>سهند</p>
-                    <p>
-                        ایران تهران منطقه غرب سمت بلوار فردوس پشت قصر شاه عباس صفوی مرد نیکو نام پسر سمیه که میشه عشق
-                        باباش
-                        در دهه ی 90 میلادی زنگ خونه مرذم رو زذ ور در رفت
-                    </p>
-                    <p>پلاک</p>
-                    <p>+98 963 969 9339</p>
-                </div>
+                {% for user_address in user_address %}
+                    <div class="address-info">
+                        <p>{{ user_address.name }}</p>
+                        <p>{{ user_address.family }}</p>
+                        <p>+98 {{ user_address.address_mobile }}</p>
+                        <p>{{ user_address.state }}</p>
+                        <p>{{ user_address.city }}</p>
+                        <p>{{ user_address.address }}</p>
+                        <p>{{ user_address.postal_code }}</p>
+                    </div>
+                {% empty %}
+                    <p>ادرس وارد نشده</p>
+                {% endfor %}
             </div>
         </div>
     </section>
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/selectize.js/0.12.6/js/standalone/selectize.min.js"
-        integrity="sha256-+C0A5Ilqmu4QcSPxrlGpaZxJ04VjsRjKu+G82kl5UJk=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.0.13/dist/js/select2.min.js"></script>
     <script language="javascript" src="/static/js_files/city.js"></script>
     <script language="javascript" src="/static/js_files/index.js"></script>
     <script language="javascript" src="/static/js_files/profile.js"></script>

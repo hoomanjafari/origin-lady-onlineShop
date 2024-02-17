@@ -1,5 +1,6 @@
 from django import forms
 from django.core.exceptions import ValidationError
+from .models import MyUser, UserAddress
 
 
 class RegisterForm(forms.Form):
@@ -29,3 +30,22 @@ class SetPasswordForm(forms.Form):
 class LoginForm(forms.Form):
     mobile = forms.CharField(max_length=13)
     password = forms.CharField(max_length=16)
+
+
+class ProfileEditForm(forms.ModelForm):
+    class Meta:
+        model = MyUser
+        fields = ('fullname', 'email')
+        labels = {
+            'fullname': '',
+            'email': ''
+        }
+
+
+class UserAddressForm(forms.ModelForm):
+    class Meta:
+        model = UserAddress
+        fields = ('name', 'family', 'address_mobile', 'state', 'city', 'address', 'postal_code')
+        labels = {
+            '__all__': '',
+        }
