@@ -158,6 +158,7 @@ class ProfileView(View):
         if form.is_valid():
             form.save()
             messages.success(request, 'تعغیرات اعمال شدن', 'success')
+            return redirect('accounts:profile', pk=user.id)
         return render(request, 'accounts/profile.html', {'form': form})
 
 
