@@ -95,7 +95,8 @@
                 <label>شماره تماس</label><br>
                 <p>+98 {{ user.mobile }}</p><br>
                 <label>ایمیل</label><br>
-                <p>{{ user.email }}</p>
+                <p class="profile-email-p">{{ user.email }}</p>
+                <a class="change_password" href="{% url 'accounts:forgot_password' %}">تغییر رمز ورود</a>
             </div>
 
             <p class="address-p">ادرس ها</p>

@@ -45,6 +45,22 @@ label {
     font-weight: 600;
 }
 
+.profile-email-p {
+    margin-bottom: 1vw;
+}
+
+.change_password {
+    font-weight: 600;
+    color: #349DDF;
+    border: solid 2px #349DDF;
+    border-radius: 0.5vw;
+    padding: 0 1vw;
+}
+
+.change_password:hover {
+    opacity: 60%;
+}
+
 .address {
     background-color: white;
     width: 88%;
@@ -337,6 +353,15 @@ label {
     .address label {
         font-size: 6vw;
         font-weight: 600;
+    }
+
+    .profile-email-p {
+        margin-bottom: 6vw;
+    }
+
+    .change_password {
+        padding: 0 6vw;
+        border-radius: 1.5vw;
     }
 
     .profile-p {

@@ -49,3 +49,7 @@ class UserAddressForm(forms.ModelForm):
         labels = {
             '__all__': '',
         }
+
+
+class ForgotPasswordForm(forms.Form):
+    forgot_mobile = forms.CharField(max_length=13, label='')
