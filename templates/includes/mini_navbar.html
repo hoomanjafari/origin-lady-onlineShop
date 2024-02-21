@@ -1,11 +1,9 @@
-<!-- ------------------------( header-onScroll )------------------------ -->
+
+<!-- ------------------------( mini-header-onScroll )------------------------ -->
+
 
 <header class="header-onScroll" id="header-onScroll">
     <div class="header-onScroll-site-name">
-        <a href="{% url 'index:go_home' %}">
-            <img src="/static/images/photo_2024-01-24_03-01-10.jpg">
-            <p class="main-header-site-name-p">تمامی اجناس اورجینال هستند</p>
-        </a>
     </div>
     <ul>
         {% if not request.user.is_authenticated %}

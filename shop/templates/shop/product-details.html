@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>جزيات محصول</title>
+    <link rel="stylesheet" href="/static/css_files/product-details.css">
+    <link rel="stylesheet" href="/static/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+</head>
+
+<body>
+
+    {% include 'includes/mini_navbar.html' %}
+
+    {% include 'includes/messages.html' %}
+
+    {% include 'includes/slid-card-box.html' %}
+    <div class="white-space"></div>
+    <div class="product-details-container">
+        <div class="details-img">
+            <img alt="product-img" class="product-img" src="{{ product.main_image.url }}">
+        </div>
+        <div class="details-content">
+            <h1>{{ product.item_name }}</h1>
+            <h4>
+                {{ product.item_info|linebreaks }}
+            </h4>
+            <p class="padding-top">تومان<span class="product-price ">{{ product.item_price }}</span></p>
+            <div id="product-colores-container">
+                {#  color boxes will apear here #}
+                {% for color in colores %}
+                    <p hidden="hidden" class="available_colores" id="available_colores">{{ color }}</p>
+                {% endfor %}
+            </div>
+            <div id="product-sizes-container">
+                {#  color boxes will apear here #}
+                {% for size in sizes %}
+                    <p hidden="hidden" class="available-sizes" id="available-sizes">{{ size }}</p>
+                {% endfor %}
+            </div>
+            <p class="quantity-p">تعداد :</p>
+            <form>
+                <button id="plus-btn" class="quantity-btn" type="button"><i class="fa fa-plus"></i></button>
+
+                <input value="1" class="quantity-input" type="text" min="1"  readonly>
+
+                <button id="minus-btn" class="quantity-btn" type="button"><i class="fa fa-minus"></i></button>
+                <p class="quantity-p">رنگ :</p>
+                <input placeholder="روی رنگ های بالا کلیک کنید" class="colores-send-data" id="colores-send-data" readonly type="text" value="">
+                <p class="quantity-p">سایز :</p>
+                <input placeholder="روی سایز های بالا کلیک کنید" readonly type="text" class="colores-send-data" id="sizes-send-data">
+                <p class="total-price-p">قیمت کل : <span id="total-price" class="total-price"></span> تومان</p>
+                <button class="add-cart" type="button">افزودن به سبد خرید</button>
+            </form>
+        </div>
+    </div>
+    <script>
+        const MyData = '{{ url_data }}';
+    </script>
+    <script src="/static/js_files/navbars.js"></script>
+    <script language="javascript" src="/static/js_files/product-details.js"></script>
+</body>
+
+</html>
