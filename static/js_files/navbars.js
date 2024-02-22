@@ -93,3 +93,10 @@ function SlidCardOpenBtn() {
       document.getElementById('slid-card-container').style.visibility = 'visible';
   }
 }
+
+/* ====================( this is for messages framework disappearing )============================== */
+
+setTimeout(fade_out, 5000);
+  function fade_out() {
+      document.getElementById('messages-framework').style.visibility = 'hidden';
+}

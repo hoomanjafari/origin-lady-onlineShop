@@ -5,10 +5,10 @@ var quantity = document.querySelector('.quantity-input');
 var productPrice = document.querySelector('.product-price').innerHTML;
 var totalPrice = document.getElementById('total-price');
 
-totalPrice.innerHTML = productPrice;
+totalPrice.value = productPrice;
 
 document.querySelector('.quantity-input').addEventListener('change', (event) => {
-    totalPrice.innerHTML = event.target.value * productPrice;
+    totalPrice.value = event.target.value * productPrice;
 })
 
 document.querySelector('#plus-btn').addEventListener('click', () => {

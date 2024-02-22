@@ -39,22 +39,30 @@
                     <p hidden="hidden" class="available-sizes" id="available-sizes">{{ size }}</p>
                 {% endfor %}
             </div>
-            <p class="quantity-p">تعداد :</p>
-            <form>
+
+            <form method="post">
+                {% csrf_token %}
+{#                --------------------( quantity-btn )-----------------------------#}
+                <p class="quantity-p">تعداد :</p>
+                <p>{{ form.errors.selected_quantity }}</p>
                 <button id="plus-btn" class="quantity-btn" type="button"><i class="fa fa-plus"></i></button>
-
-                <input value="1" class="quantity-input" type="text" min="1"  readonly>
-
+                <input name="selected_quantity" value="1" class="quantity-input" type="text" min="1"  readonly>
                 <button id="minus-btn" class="quantity-btn" type="button"><i class="fa fa-minus"></i></button>
+{#                -----------------------------------------------------------------#}
                 <p class="quantity-p">رنگ :</p>
-                <input placeholder="روی رنگ های بالا کلیک کنید" class="colores-send-data" id="colores-send-data" readonly type="text" value="">
+                <p>{{ form.errors.selected_color }}</p>
+                <input name="selected_color" placeholder="روی رنگ های بالا کلیک کنید" class="colores-send-data" id="colores-send-data" readonly type="text" value="">
                 <p class="quantity-p">سایز :</p>
-                <input placeholder="روی سایز های بالا کلیک کنید" readonly type="text" class="colores-send-data" id="sizes-send-data">
-                <p class="total-price-p">قیمت کل : <span id="total-price" class="total-price"></span> تومان</p>
-                <button class="add-cart" type="button">افزودن به سبد خرید</button>
+                <p>{{ form.errors.selected_size }}</p>
+                <input name="selected_size" placeholder="روی سایز های بالا کلیک کنید" readonly type="text" class="colores-send-data" id="sizes-send-data">
+                <p class="total-price-p">جمع کل :</p>
+                <input name="total_price" readonly type="text" class="total-price" id="total-price">
+                <p class="total-price-p">تومان</p>
+                <button class="add-cart" type="submit">افزودن به سبد خرید</button>
             </form>
         </div>
     </div>
+
     <script>
         const MyData = '{{ url_data }}';
     </script>
