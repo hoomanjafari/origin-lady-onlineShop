@@ -2,41 +2,29 @@
     <div class="slid-card-box" id="slid-card-box">
         <button class="slid-card-closeBtn" onclick="SlidCardCloseBtn()"><i class="fa fa-window-close"></i></button>
         <p class="slid-card-p">سبد خرید شما</p>
-        <p class="slid-card-item-quantity">تعداد ایتم ها <span>3</span></p>
-        <div class="card-item">
-            <img src="/static/images/shoomiz.jpg">
-            <div class="card-item-info">
-                <h1>لگ شاین کمر گن دار</h1>
-                <button type="button" class="edit-sizeBtn">تغییر سایز و تعداد <i class="fa fa-edit"></i></button>
-                <p>نومان<span>222.000</span></p>
+        <p class="slid-card-item-quantity">مجموع تعداد محصولات در سبد کالا : <span>{{ cart_items_count }}</span> عدد</p>
+        {% for item in cart_items %}
+            <div class="card-item">
+                <div class="cart_time_img">
+                    <img alt="cart-item-image" src="{{ item.selected_product.main_image.url }}">
+                </div>
+                <div class="card-item-info">
+                    <h1>{{ item.selected_product.item_name }}</h1>
+                    <button type="button" class="edit-sizeBtn">تغییر سایز و تعداد <i class="fa fa-edit"></i></button>
+                    <p>تعداد :<span>{{ item.selected_quantity}}</span></p>
+                    <p>تومان<span>{{ item.total_price}}</span></p>
+                </div>
             </div>
-        </div>
-
-        <div class="card-item">
-            <img src="/static/images/shoomiz.jpg">
-            <div class="card-item-info">
-                <h1>لگ شاین کمر گن دار</h1>
-                <button type="button" class="edit-sizeBtn">تغییر سایز و تعداد <i class="fa fa-edit"></i></button>
-                <p>نومان<span>222.000</span></p>
-            </div>
-        </div>
-
-        <div class="card-item">
-            <img src="/static/images/shoomiz.jpg">
-            <div class="card-item-info">
-                <h1>لگ شاین کمر گن دار</h1>
-                <button type="button" class="edit-sizeBtn">تغییر سایز و تعداد <i class="fa fa-edit"></i></button>
-                <p>نومان<span>222.000</span></p>
-            </div>
-        </div>
-
-        <div class="card-item-price">
-            <p>قیمت کل</p>
-            <p>222.000<span>تومان</span></p>
-        </div>
-
+        {% empty %}
+            <p class="slid-card-item-quantity">در حال حاضر محصولی به سبد خرید شما اضافه نشد است</p>
+        {% endfor %}
         <div class="card-checkout">
+            <div>
+                <p class="cart-total-price-p">جمع کل :</p>
+                <p class="cart-total-price">{{ total_price }}</p>
+            </div>
             <a href="#">ادامه مراحل پرداخت</a>
+            <button class="second-slid-card-closeBtn" onclick="SlidCardCloseBtn()">بستن پنجره سبد خرید</button>
         </div>
     </div>
 </section>

@@ -48,7 +48,10 @@ class AllClothes(models.Model):
 
 
 class AddCart(models.Model):
-    customer = models.ForeignKey(MyUser, on_delete=models.CASCADE, related_name='addCart_customer')
+    customer = models.ForeignKey(
+        MyUser, on_delete=models.CASCADE, related_name='addCart_customer', null=True, blank=True
+    )
+    guest_session_id = models.CharField(max_length=100, null=True, blank=True)
     selected_product = models.ForeignKey(AllClothes, on_delete=models.CASCADE, related_name='addCart_selectedProduct')
     selected_color = models.CharField(max_length=22)
     selected_size = models.CharField(max_length=22)
@@ -58,5 +61,9 @@ class AddCart(models.Model):
     is_paid = models.BooleanField(default=False)
 
     def __str__(self):
-        return f'({self.selected_product}) -- ( customer_number : ' \
-               f' {self.customer} ) -- ( total price {self.total_price} )'
+        if self.customer is not None:
+            return f'(Product : x{self.selected_quantity} {self.selected_product.item_name} Id : {self.selected_product.id}) -- ( Customer_number : ' \
+                   f' {self.customer} ) -- ( Total price {self.total_price} )'
+        else:
+            return f'(Product : x{self.selected_quantity} {self.selected_product.item_name} Id : {self.selected_product.id}) -- ( Guest_session_id : ' \
+                   f' {self.guest_session_id} ) -- ( Total price {self.total_price} )'
