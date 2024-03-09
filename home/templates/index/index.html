@@ -31,49 +31,49 @@
         </div>
         <div class="cate-list">
             <div class="cate-list-item">
-                <a href="#"><img src="/static/images/under-wear.jpg">
+                <a href="{% url 'shop:under_wear' %}"><img src="/static/images/under-wear.jpg">
                     <p>انواع لباس زیر و نیم تنه</p>
                 </a>
             </div>
 
             <div class="cate-list-item">
-                <a href="{% url 'shop:tshirt' %}"><img src="/static/images/t-shirt.jpg">
+                <a href="{% url 'shop:shop_tshirt' %}"><img src="/static/images/t-shirt.jpg">
                     <p>تیشرت زنانه</p>
                 </a>
             </div>
 
             <div class="cate-list-item">
-                <a href="#"><img src="/static/images/shoomiz.jpg">
+                <a href="{% url 'shop:shop_shomiz' %}"><img src="/static/images/shoomiz.jpg">
                     <p>شومیز</p>
                 </a>
             </div>
 
             <div class="cate-list-item">
-                <a href="#"><img src="/static/images/beach-shirt.jpg">
+                <a href="{% url 'shop:shop_beach_shirt' %}"><img src="/static/images/beach-shirt.jpg">
                     <p>پیراهن ساحلی</p>
                 </a>
             </div>
 
-            <div class="cate-list-item">
-                <a href="#"><img src="/static/images/jwelry.jpg">
+            <div  class="cate-list-item this_disabled">
+                <a><img src="/static/images/jwelry.jpg">
                     <p>زیورالات</p>
                 </a>
             </div>
 
             <div class="cate-list-item">
-                <a href="#"><img src="/static/images/hat.jpg">
+                <a href="{% url 'shop:shop_hats' %}"><img src="/static/images/hat.jpg">
                     <p>کلاه نقاب دار زنانه</p>
                 </a>
             </div>
 
             <div class="cate-list-item">
-                <a href="#"><img src="/static/images/top.jpg">
+                <a href="{% url 'shop:shop_tops' %}"><img src="/static/images/top.jpg">
                     <p>تاپ</p>
                 </a>
             </div>
 
             <div class="cate-list-item">
-                <a href="#"><img src="/static/images/suport-leg.jpg">
+                <a href="{% url 'shop:shop_legs' %}"><img src="/static/images/suport-leg.jpg">
                     <p>انواع لگ</p>
                 </a>
             </div>
@@ -89,97 +89,26 @@
             <!-- Additional required wrapper -->
             <div class="swiper-wrapper">
                 <!-- Slides -->
-                <div class="swiper-slide">
-                    <div class="swiper-slide-item">
-                        <a href="#">
-                            <img src="/static/images/shoomiz.jpg">
-                            <div class="quick-add">
-                                <a href="#"> افزودن به سبد خرید</a>
-                            </div>
-                            <h1>لگ شاین کمر گن دار</h1>
-                            <p>
-                                تومان
-                                222/000
-                            </p>
-                        </a>
+                {% for item in new_products %}
+                    <div class="swiper-slide">
+                        <div class="swiper-slide-item">
+                            <a href="{% url 'shop:product_details' pk=item.id %}">
+                                <img src="{{ item.main_image.url }}">
+                                <div class="new-icon">
+                                    <img class="sale-icon" src="/static/images/new.png">
+                                </div>
+                                <div class="quick-add">
+                                    <a href="#">جزئیات رنگ ها و سایز ها</a>
+                                </div>
+                                <h1>{{ item.item_name }}</h1>
+                                <p>
+                                    تومان
+                                    {{ item.item_price }}
+                                </p>
+                            </a>
+                        </div>
                     </div>
-                </div>
-                <div class="swiper-slide">
-                    <div class="swiper-slide-item">
-                        <a href="#">
-                            <img src="/static/images/shoomiz.jpg">
-                            <div class="quick-add">
-                                <a href="#"> افزودن به سبد خرید</a>
-                            </div>
-                            <h1>لگ شاین کمر گن دار</h1>
-                            <p>
-                                تومان
-                                222/000
-                            </p>
-                        </a>
-                    </div>
-                </div>
-                <div class="swiper-slide">
-                    <div class="swiper-slide-item">
-                        <a href="#">
-                            <img src="/static/images/shoomiz.jpg">
-                            <div class="quick-add">
-                                <a href="#"> افزودن به سبد خرید</a>
-                            </div>
-                            <h1>لگ شاین کمر گن دار</h1>
-                            <p>
-                                تومان
-                                222/000
-                            </p>
-                        </a>
-                    </div>
-                </div>
-                <div class="swiper-slide">
-                    <div class="swiper-slide-item">
-                        <a href="#">
-                            <img src="/static/images/shoomiz.jpg">
-                            <div class="quick-add">
-                                <a href="#"> افزودن به سبد خرید</a>
-                            </div>
-                            <h1>لگ شاین کمر گن دار</h1>
-                            <p>
-                                تومان
-                                222/000
-                            </p>
-                        </a>
-                    </div>
-                </div>
-                <div class="swiper-slide">
-                    <div class="swiper-slide-item">
-                        <a href="#">
-                            <img src="/static/images/shoomiz.jpg">
-                            <div class="quick-add">
-                                <a href="#"> افزودن به سبد خرید</a>
-                            </div>
-                            <h1>لگ شاین کمر گن دار</h1>
-                            <p>
-                                تومان
-                                222/000
-                            </p>
-                        </a>
-                    </div>
-                </div>
-                <div class="swiper-slide">
-                    <div class="swiper-slide-item">
-                        <a href="#">
-                            <img src="/static/images/shoomiz.jpg">
-                            <div class="quick-add">
-                                <a href="#"> افزودن به سبد خرید</a>
-                            </div>
-                            <h1>لگ شاین کمر گن دار</h1>
-                            <p>
-                                تومان
-                                222/000
-                            </p>
-                        </a>
-                    </div>
-                </div>
-
+                {% endfor %}
             </div>
             <!-- If we need pagination -->
             <div class="swiper-pagination"></div>
@@ -221,115 +150,30 @@
                 <!-- Additional required wrapper -->
                 <div class="swiper-wrapper">
                     <!-- Slides -->
-                    <div class="swiper-slide">
-                        <div class="swiper-slide-item">
-                            <a href="#">
-                                <img src="/static/images/shoomiz.jpg">
-                                <div class="sale-icon">
-                                    <img class="sale-icon" src="/static/images/sale.png">
-                                </div>
-                                <div class="quick-add">
-                                    <a href="#"> افزودن به سبد خرید</a>
-                                </div>
-                                <h1>لگ شاین کمر گن دار</h1>
-                                <p>
-                                    تومان
-                                    222/000
-                                </p>
-                            </a>
+                    {% for item in discounted_clothes %}
+                        <div class="swiper-slide">
+                            <div class="swiper-slide-item">
+                                <a href="{% url 'shop:product_details' pk=item.id %}">
+                                    <img src="{{ item.main_image.url }}">
+                                    <div class="sale-icon">
+                                        <img class="sale-icon" src="/static/images/sale.png">
+                                    </div>
+                                    <div class="quick-add">
+                                        <a href="#">جزئیات رنگ ها و سایز ها</a>
+                                    </div>
+                                    <h1>{{ item.item_name }}</h1>
+                                    <s>
+                                        تومان
+                                        {{ item.item_price }}
+                                    </s>
+                                    <p class="index-price_on_discount">
+                                        تومان
+                                        {{ item.item_price_on_discount }}
+                                    </p>
+                                </a>
+                            </div>
                         </div>
-                    </div>
-                    <div class="swiper-slide">
-                        <div class="swiper-slide-item">
-                            <a href="#">
-                                <img src="/static/images/shoomiz.jpg">
-                                <div class="sale-icon">
-                                    <img class="sale-icon" src="/static/images/sale.png">
-                                </div>
-                                <div class="quick-add">
-                                    <a href="#"> افزودن به سبد خرید</a>
-                                </div>
-                                <h1>لگ شاین کمر گن دار</h1>
-                                <p>
-                                    تومان
-                                    222/000
-                                </p>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="swiper-slide">
-                        <div class="swiper-slide-item">
-                            <a href="#">
-                                <img src="/static/images/shoomiz.jpg">
-                                <div class="sale-icon">
-                                    <img class="sale-icon" src="/static/images/sale.png">
-                                </div>
-                                <div class="quick-add">
-                                    <a href="#"> افزودن به سبد خرید</a>
-                                </div>
-                                <h1>لگ شاین کمر گن دار</h1>
-                                <p>
-                                    تومان
-                                    222/000
-                                </p>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="swiper-slide">
-                        <div class="swiper-slide-item">
-                            <a href="#">
-                                <img src="/static/images/shoomiz.jpg">
-                                <div class="sale-icon">
-                                    <img class="sale-icon" src="/static/images/sale.png">
-                                </div>
-                                <div class="quick-add">
-                                    <a href="#"> افزودن به سبد خرید</a>
-                                </div>
-                                <h1>لگ شاین کمر گن دار</h1>
-                                <p>
-                                    تومان
-                                    222/000
-                                </p>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="swiper-slide">
-                        <div class="swiper-slide-item">
-                            <a href="#">
-                                <img src="/static/images/shoomiz.jpg">
-                                <div class="sale-icon">
-                                    <img class="sale-icon" src="/static/images/sale.png">
-                                </div>
-                                <div class="quick-add">
-                                    <a href="#"> افزودن به سبد خرید</a>
-                                </div>
-                                <h1>لگ شاین کمر گن دار</h1>
-                                <p>
-                                    تومان
-                                    222/000
-                                </p>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="swiper-slide">
-                        <div class="swiper-slide-item">
-                            <a href="#">
-                                <img src="/static/images/shoomiz.jpg">
-                                <div class="sale-icon">
-                                    <img class="sale-icon" src="/static/images/sale.png">
-                                </div>
-                                <div class="quick-add">
-                                    <a href="#"> افزودن به سبد خرید</a>
-                                </div>
-                                <h1>لگ شاین کمر گن دار</h1>
-                                <p>
-                                    تومان
-                                    222/000
-                                </p>
-                            </a>
-                        </div>
-                    </div>
-
+                    {% endfor %}
                 </div>
                 <!-- If we need pagination -->
                 <div class="swiper-pagination"></div>
@@ -348,7 +192,7 @@
             <p class="swiper-new-products-p">با ما در ارتباط باشین</p>
         </div>
         <div class="index-contact">
-            <p>اطلاعات زیر را کامل کنید تا ما بتونیم شمارو از تخفیفات و همجنین شارج شد اجناس جدید مطلع کنیم</p>
+            <p>اطلاعات زیر را کامل کنید تا ما بتونیم شمارو از تخفیفات و همچنین از شارج شدن اجناس جدید مطلع کنیم</p>
             <form>
                 <label>نام و نام خانوادگی</label>
                 <input type="text">

@@ -33,3 +33,16 @@ class UserAddressView(View):
             messages.error(request, 'اطلاعات وارد شده صحیح نیست لطفا با دقت بیشتر اطلاعات رو وارد کنید', 'danger')
             print(form.errors)
             return redirect('accounts:profile', pk=user.id)
+
+
+class RemoveAddressView(View):
+    def dispatch(self, request, *args, **kwargs):
+        if not request.user.is_authenticated:
+            return redirect('accounts:login')
+        return super().dispatch(request, *args, **kwargs)
+
+    def get(self, request, **kwargs):
+        address = UserAddress.objects.get(pk=kwargs['pk'])
+        address.delete()
+        messages.error(request, 'ادرس با موفقیت حذف شد', 'success')
+        return redirect('accounts:profile', pk=request.user.id)

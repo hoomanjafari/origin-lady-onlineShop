@@ -4,6 +4,7 @@
 
 a {
     text-decoration: none;
+    cursor: pointer;
 }
 
 /* ==============( header-onScroll ) ========================================== */
@@ -16,27 +17,38 @@ a {
 }
 
 .clothes-dropBtn:hover .clothes-dropdown-content {
-    height: 9vw;
+    height: 20vw;
     transition: 0.3s;
 }
 
+.clothes-dropBtn p {
+    display: inline-block;
+    cursor: pointer;
+    color: #8F080F;
+}
 
 .clothes-dropdown-content {
     position: absolute;
-    background-color: #b08f90a2;
+    background-color: #ccb2b2;
+    border-radius: 0 0 2vw 2vw;
+    text-align: center;
     height: 0;
     overflow: hidden;
-    width: 16vw;
+    width: 15vw;
+    padding: 0 3vw;
 }
 
 .clothes-dropdown-content a {
-    display: inline-block;
-    padding: 0.5vw 2vw;
-    color: #8F080F !important;
+    display: block;
+    padding: 0.5vw 1vw;
+    border-bottom: 1px dotted white;
+    color: #590000 !important;
+    font-size: 1.4vw;
+    font-weight: 600;
 }
 
 .clothes-dropdown-content a:hover {
-    color: #BBBBBB !important;
+    opacity: 40%;
 }
 
 
@@ -218,10 +230,17 @@ a {
     padding: 3vw;
 }
 
+.nav-cart-quantiry {
+    position: absolute;
+    right: 17vw;
+    top: 6vw;
+    color: #ffffff;
+}
+
 .fixed-nav-user_authenticated_id {
     background-color: #8F080F;
     color: white !important;
-    padding: 1vw 9vw !important;
+    padding: 1vw 6vw !important;
     border-radius: 2vw;
 }
 
@@ -275,18 +294,20 @@ a {
 }
 
 .responsive-header a {
-    color: #8F080F;
+    color: #363636;
 }
 
 .responsive-header i {
-    color: #BBBBBB;
+    color: black;
 }
 
 .responsive-clothes-dropDown-content a {
     display: block;
-    padding: 1vw 6vw;
+    padding: 3vw 6vw;
     border-bottom: dashed 2px #BBBBBB;
-    font-size: 7.7vw;
+    font-size: 5vw;
+    text-align: right;
+    color: black;
 }
 
 .responsive-header button {
@@ -294,7 +315,7 @@ a {
     border: none;
     font-size: 9vw;
     font-weight: 600;
-    color: #8F080F;
+    color: #363636;
 }
 
 .responsive-clothes-dropDown-content {
@@ -305,7 +326,7 @@ a {
 }
 
 .show {
-    height: 76vw !important;
+    height: 88vw !important;
 }
 
 .window-close-btn {

@@ -121,3 +121,10 @@ inputs.addEventListener("keyup", function (e) {
         return;
     }
 });
+
+// ===================================( messages-framework )==============================================
+
+setTimeout(fade_out, 5000);
+function fade_out() {
+  document.getElementById('messages-framework').style.visibility = 'hidden';
+}

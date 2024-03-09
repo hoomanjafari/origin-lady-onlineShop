@@ -20,7 +20,7 @@ class ClothesCategory(models.Model):
     category = models.CharField(max_length=33)
 
     def __str__(self):
-        return f'{self.category} --- id : {self.id}'
+        return f'{self.category}id : {self.id}'
 
 
 class AllClothes(models.Model):
@@ -31,6 +31,9 @@ class AllClothes(models.Model):
     item_info = models.TextField()
     item_price = models.PositiveIntegerField()
     added_time = models.DateTimeField(auto_now_add=True)
+    discount = models.BooleanField(default=False)
+    discount_percentage = models.DecimalField(max_digits=6, decimal_places=1, blank=True, null=True)
+    item_price_on_discount = models.PositiveIntegerField(blank=True, null=True)
 
     main_image = models.ImageField(upload_to='img/%y%m%d%H%M')
     image_white = models.ImageField(upload_to='img/%y%m%d%H%M', blank=True, null=True)
@@ -43,8 +46,7 @@ class AllClothes(models.Model):
     image_green = models.ImageField(upload_to='img/%y%m%d%H%M', blank=True, null=True)
 
     def __str__(self):
-        return f'(info : { self.item_info[:30]}... ) --- (name : {self.item_name} ) ' \
-               f'-- (category : {self.item_category} id: {self.item_category.id})'
+        return f'(info : { self.item_info[:30]}... ) --- (name : {self.item_name} id:{self.id} ) (category : {self.item_category})'
 
 
 class AddCart(models.Model):
@@ -63,7 +65,7 @@ class AddCart(models.Model):
     def __str__(self):
         if self.customer is not None:
             return f'(Product : x{self.selected_quantity} {self.selected_product.item_name} Id : {self.selected_product.id}) -- ( Customer_number : ' \
-                   f' {self.customer} ) -- ( Total price {self.total_price} )'
+                   f' {self.customer} ) -- ( Total price {self.total_price} -- is_paid : {self.is_paid} )'
         else:
             return f'(Product : x{self.selected_quantity} {self.selected_product.item_name} Id : {self.selected_product.id}) -- ( Guest_session_id : ' \
                    f' {self.guest_session_id} ) -- ( Total price {self.total_price} )'

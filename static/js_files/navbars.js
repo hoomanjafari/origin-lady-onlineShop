@@ -61,36 +61,37 @@ window.addEventListener('click', function (event) {
 }, false)
 // ============================================( open-responsive-menu )====================
 function menuBars() {
-  document.getElementById('responsive-header').style.width = '88vw',
-    document.getElementById('bg-dark').style.display = 'block'
+  document.getElementById('responsive-header').style.width = '88vw';
+  document.getElementById('bg-dark').style.display = 'block';
 }
 
 function closeMenuBar() {
-  document.getElementById('responsive-header').style.width = '0',
-    document.getElementById('bg-dark').style.display = 'none'
+  document.getElementById('responsive-header').style.width = '0';
+  document.getElementById('bg-dark').style.display = 'none';
 }
 
 /* =============================( slid-card )================================================ */
 
 function SlidCardCloseBtn() {
+
   document.getElementById('slid-card-box').style.width = '0';
-    document.getElementById('slid-card-container').style.visibility = 'hidden';
+  document.getElementById('slid-card-container').style.visibility = 'hidden';
 }
 
 function SlidCardOpenBtn() {
-  var isDesktop = screen.width < 1400 && screen.width > 1025;
-  var isTablet = screen.width < 1025 && screen.width > 440;
-  var isMobile = screen.width < 440 && screen.width > 190;
+  var isDesktop = screen.width >= 1024;
+  var isTablet = screen.width <= 1023 && screen.width >= 768;
+  var isMobile = screen.width <= 767;
 
   if (isMobile) {
-    document.getElementById('slid-card-box').style.width = '63vw';
-      document.getElementById('slid-card-container').style.visibility = 'visible';
+    document.getElementById('slid-card-box').style.width = '70vw';
+    document.getElementById('slid-card-container').style.visibility = 'visible';
   } else if (isDesktop) {
-    document.getElementById('slid-card-box').style.width = '33vw';
-      document.getElementById('slid-card-container').style.visibility = 'visible';
+    document.getElementById('slid-card-box').style.width = '39vw';
+    document.getElementById('slid-card-container').style.visibility = 'visible';
   } else if (isTablet) {
-    document.getElementById('slid-card-box').style.width = '44vw';
-      document.getElementById('slid-card-container').style.visibility = 'visible';
+    document.getElementById('slid-card-box').style.width = '66vw';
+    document.getElementById('slid-card-container').style.visibility = 'visible';
   }
 }
 

@@ -113,6 +113,27 @@ label {
     margin: 3vw;
 }
 
+.no-address-yet-p {
+    text-align: center;
+    font-size: 2vw !important;
+    font-weight: 600;
+    color: #757575;
+}
+
+.remove-address {
+    font-weight: 600;
+    font-size: 1.3vw;
+    color: #df3434;
+    border: solid 2px #df3434;
+    padding: 0 1vw;
+    border-radius: 0.5vw;
+    margin: 0 3vw;
+}
+
+.remove-address:hover {
+    opacity: 60%;
+}
+
 .address-info p {
     font-size: 1.3vw;
     line-height: 2vw;
@@ -260,15 +281,12 @@ label {
 
 .add-adress-box {
     width: 60vw;
-    padding: 0 2vw 2vw;
+    padding: 2vw;
     background-color: white;
     border-radius: 1vw;
     position: relative;
 }
 
-.add-adress-box div {
-    margin: 1.3vw 0;
-}
 
 .add-adress-box input {
     width: 20vw;
@@ -279,6 +297,14 @@ label {
     color: black;
 }
 
+.profile-address-field {
+    width: 30vw !important;
+    resize: none;
+    font-size: 1.4vw;
+    border: 1px solid rgb(196, 196, 196);
+    border-radius: 0.3vw;
+}
+
 .add-adress-box label {
     color: #8F080F;
 }
@@ -286,7 +312,7 @@ label {
 .add-address-p {
     text-align: center;
     font-size: 2vw;
-    margin-bottom: 3vw;
+    margin-bottom: 1vw;
     font-weight: 600;
     color: #8F080F;
 }
@@ -297,8 +323,8 @@ label {
     border: none;
     border-radius: 0.5vw;
     color: white;
-    font-size: 1.6vw;
-    margin-left: 2vw;
+    font-size: 1.3vw;
+    margin-top: 1vw;
     cursor: pointer;
     display: block;
 }
@@ -307,14 +333,14 @@ label {
     opacity: 60%;
 }
 
-.selectize-control {
-    width: 20vw;
-    font-size: 1.4vw;
-    text-align: center;
-    font-weight: 600;
-    color: #8F080F;
-    margin-top: -1.4vw !important;
-}
+/*.selectize-control {*/
+/*    width: 20vw;*/
+/*    font-size: 1.4vw;*/
+/*    text-align: center;*/
+/*    font-weight: 600;*/
+/*    color: #8F080F;*/
+/*    margin-top: -1.4vw !important;*/
+/*}*/
 
 .item {
     color: #8F080F;
@@ -328,8 +354,7 @@ label {
 
 .select2-container--default .select2-selection--single .select2-selection__rendered,
 .select2-results__option[aria-selected] {
-    color: black;
-    /*line-height: 28px;*/
+    color: #8F080F;
     font-size: 1.2vw;
     font-weight: 600;
 }
@@ -349,18 +374,53 @@ label {
     color: green;
 }
 
+@media (max-width: 1024px) {
+    .add-adress-box {
+        padding: 3vw !important;
+    }
+    .profile-address-field {
+        width: 60vw !important;
+        font-size: 4vw;
+    }
+
+    .select2-container .select2-selection--single {
+        height: 8vw !important;
+    }
+
+    .select2-container--default .select2-selection--single .select2-selection__rendered {
+        line-height: 7vw !important;
+    }
+
+    .add-adress-box input {
+        width: 20vw;
+        font-size: 4vw !important;
+        padding: 0.3vw;
+        border: 1px solid rgb(196, 196, 196);
+        border-radius: 0.3vw;
+        color: black;
+    }
+
+    .select2-search--dropdown .select2-search__field {
+        font-size: 4vw;
+    }
+}
+
 @media (max-width: 768px) {
 
     .email-name p,
     .email-name label,
     .address p,
     .address label {
-        font-size: 6vw;
+        font-size: 5vw;
         font-weight: 600;
     }
 
     .profile-email-p {
         margin-bottom: 6vw;
+    }
+
+    .profile-detail-container {
+        min-height: 200vw;
     }
 
     .change_password {
@@ -385,11 +445,10 @@ label {
     .address-info {
         display: block;
         width: 60vw;
-        margin-bottom: 26vw;
     }
 
     .address-info p {
-        font-size: 6vw;
+        font-size: 5vw;
         line-height: 12vw;
     }
 
@@ -471,14 +530,14 @@ label {
         font-size: 4vw;
     }
 
-    .selectize-control {
-        width: 85vw;
-        font-size: 4vw;
-        text-align: center;
-        font-weight: 600;
-        color: #8F080F;
-        margin-top: -1.4vw !important;
-    }
+    /*.selectize-control {*/
+    /*    width: 85vw;*/
+    /*    font-size: 4vw;*/
+    /*    text-align: center;*/
+    /*    font-weight: 600;*/
+    /*    color: #8F080F;*/
+    /*    margin-top: -1.4vw !important;*/
+    /*}*/
 
     .select-city {
         width: 85vw !important;
@@ -495,5 +554,25 @@ label {
     .add-address-p {
         font-size: 5vw;
         margin-bottom: 6vw;
+    }
+
+    .remove-address {
+        font-weight: 600;
+        font-size: 4vw;
+        color: #df3434;
+        border: solid 2px #df3434;
+        padding: 0.5vw 7vw;
+        border-radius: 1.5vw;
+        margin: 0 3vw;
+    }
+
+    .no-address-yet-p {
+        font-size: 6vw !important;
+        margin: 9vw 0 12vw;
+    }
+
+    .select2-container--default .select2-selection--single .select2-selection__rendered,
+    .select2-results__option[aria-selected] {
+        font-size: 4vw;
     }
 }

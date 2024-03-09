@@ -21,7 +21,7 @@
                 <form method="post">
                     {% csrf_token %}
                     <label>شماره موبایل</label>
-                    <input type="text" name="mobile" placeholder="0912...">
+                    <input type="number" name="mobile" placeholder="0912...">
                     <label>رمز عبور</label>
                     <input type="password" name="password" placeholder="123abc...">
                     <a class="forgot-password" href="{% url 'accounts:forgot_password' %}">( فراموشی رمز عبور )</a>
@@ -31,6 +31,13 @@
             </div>
         </div>
     </main>
+
+    <script>
+        setTimeout(fade_out, 5000);
+        function fade_out() {
+          document.getElementById('messages-framework').style.visibility = 'hidden';
+        }
+    </script>
 
 </body>
 

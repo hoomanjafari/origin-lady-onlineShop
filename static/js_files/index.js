@@ -46,11 +46,11 @@ const swiper = new Swiper('.swiper', {
 // ============================================ ( about-us-js ) =========================
 
 window.addEventListener('scroll', function () {
-  var isDesktop = screen.width < 1400 && screen.width > 890;
-  var isTablet = screen.width < 890 && screen.width > 440;
-  var isMobile = screen.width < 440 && screen.width > 190;
+  var isDesktop = screen.width >= 1024;
+  var isTablet = screen.width <= 1023 && screen.width >= 768;
+  var isMobile = screen.width <= 767;
   if (isDesktop) {
-    if (document.body.scrollTop > 1400 || document.documentElement.scrollTop > 1400) {
+    if (document.body.scrollTop > 1200 || document.documentElement.scrollTop > 1200) {
       document.getElementById('object-leftSide').style.width = "20vw";
       document.getElementById('object-rightSide').style.width = "20vw";
     } else {
@@ -58,7 +58,7 @@ window.addEventListener('scroll', function () {
       document.getElementById('object-rightSide').style.width = "0";
     }
   } else if (isTablet) {
-    if (document.body.scrollTop > 360 || document.documentElement.scrollTop > 360) {
+    if (document.body.scrollTop > 1060 || document.documentElement.scrollTop > 1060) {
       document.getElementById('object-leftSide').style.width = "20vw";
       document.getElementById('object-rightSide').style.width = "20vw";
     } else {

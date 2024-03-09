@@ -14,9 +14,13 @@ a {
     text-decoration: none;
 }
 
-
 .clear-fixed {
     clear: both;
+}
+
+.this_disabled {
+    opacity: 30%;
+    pointer-events: none;
 }
 
 .border-middle-text {
@@ -117,7 +121,6 @@ a {
 /* =============================( content-swiper-new-products and swiper-discount-product )===================================== */
 
 .swiper {
-    margin-bottom: 6vw;
     border-radius: 1vw;
 }
 
@@ -127,19 +130,20 @@ a {
     display: flex;
     justify-content: center;
     align-items: center;
-    padding-bottom: 3vw;
 }
 
 .quick-add {
     position: absolute;
-    bottom: 9.6vw;
-    padding-left: 1vw;
+    margin-top: -1vw;
+    margin-left: -0.5vw;
+    padding: 0 1vw;
     border-radius: 3vw;
     z-index: 10;
-    font-size: 2vw;
+    font-size: 1.6vw;
+    font-weight: 600;
     background-color: #8F080F;
     width: 15vw;
-    height: 0;
+    max-height: 0;
     overflow: hidden;
 }
 
@@ -153,11 +157,18 @@ a {
 }
 
 .swiper-slide h1 {
-    padding: 2vw 0;
+    padding: 1vw 0;
+    font-size: 1.6vw !important;
+    color: #8F080F;
 }
 
 .swiper-slide p {
     font-size: 1.3vw;
+}
+
+.swiper-slide s {
+    font-size: 1.3vw;
+    color: #727272;
 }
 
 .swiper-slide h1 {
@@ -167,11 +178,12 @@ a {
 .swiper-slide img {
     width: 16vw;
     height: 24vw;
+    border-radius: 1vw;
 }
 
 .swiper-slide-item {
     display: inline-block;
-    padding-top: 4vw;
+    padding: 3vw 0;
 }
 
 
@@ -196,28 +208,44 @@ a {
     opacity: 60%;
 }
 
-.swiper-discount-product {
-    padding-top: 2vw;
-}
-
-.sale-icon {
-    width: 6vw;
-    height: 6vw;
+.sale-icon,
+.new-icon {
+    width: 5vw;
+    height: 5vw;
     position: absolute;
     top: 1vw;
     left: 1vw;
 }
 
-.sale-icon img {
+.sale-icon img,
+.new-icon img {
     width: 100% !important;
     height: 100% !important;
     border-radius: 1vw;
     object-fit: cover;
 }
 
+.index-price_on_discount {
+    color: #8F080F;
+}
+
+@media (max-width: 1024px) {
+    .swiper-slide h1 {
+        font-size: 2.5vw !important;
+    }
+
+    .swiper-slide s {
+        font-size: 2.5vw;
+    }
+
+    .swiper-slide p {
+        font-size: 2.5vw !important;
+    }
+}
 
 @media (max-width: 768px) {
-    .sale-icon {
+    .sale-icon,
+    .new-icon {
         left: -0.5vw;
     }
 
@@ -250,7 +278,8 @@ a {
 }
 
 @media (max-width: 600px) {
-    .sale-icon {
+    .sale-icon,
+    .new-icon {
         left: 3vw;
         width: 9vw;
         height: 9vw;
@@ -259,8 +288,8 @@ a {
 
 @media (min-width: 1200px) {
     .swiper-slide-item:hover .quick-add {
-        height: 3vw;
-        transition: 0.3s;
+        max-height: 4vw;
+        transition: 0.6s;
     }
 
     .swiper-slide-item img:hover {

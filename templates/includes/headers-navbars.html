@@ -26,20 +26,21 @@
         <li><a href="#">درباره ما</a></li>
         <li><a href="{% url 'index:go_home' %}">صفحه نخست</a></li>
         <li class="clothes-dropBtn">
-            <a href="#">لباس ها</a> <i class="fa fa-caret-down"></i>
+            <p>لباس ها</p> <i class="fa fa-caret-down"></i>
             <div class="clothes-dropdown-content">
-                <a href="#">link 1</a>
-                <a href="#">link 2</a>
-                <a href="#">link 3</a>
-                <a href="#">link 4</a>
-                <a href="#">link 5</a>
-                <a href="#">link 6</a>
+                <a href="{% url 'shop:shop_tops' %}">تاپ</a>
+                <a href="{% url 'shop:shop_shomiz' %}">شومیز</a>
+                <a href="{% url 'shop:shop_legs' %}">انواع لگ</a>
+                <a href="{% url 'shop:shop_tshirt' %}">تیشرت زنانه</a>
+                <a href="{% url 'shop:shop_beach_shirt' %}">پیراهن ساحلی</a>
+                <a href="{% url 'shop:shop_hats' %}">کلاه نقاب دار زنانه</a>
+                <a href="{% url 'shop:under_wear' %}">انواع لباس زیر و نیم تنه</a>
             </div>
         </li>
 
         <li class="search-bag-icon">
             <button class="slid-card-openBtn" type="button" onclick="SlidCardOpenBtn()"><i
-                    class="fa fa-shopping-bag"></i></button>
+                    class="fa fa-shopping-bag"></i> {{ cart_items_count }}</button>
             <a href="#"><i class="fa fa-search"></i></a>
         </li>
     </ul>
@@ -62,6 +63,7 @@
             </li>
         {% endif %}
         <li><button type="button" onclick="SlidCardOpenBtn()"><i class="fa fa-shopping-bag"></i></button></li>
+        <li class="nav-cart-quantiry"><p>{{ cart_items_count }}</p></li>
         <li><a href="#"><i class="fa fa-search"></i></a></li>
     </ul>
 </nav>
@@ -80,26 +82,27 @@
             {% if request.user.is_authenticated %}
             <li>
                 <a href="{% url 'accounts:logout' %}">خروج از حساب</a> |
-                <a href="{% url 'accounts:profile' pk=request.user.mobile %}">حساب کاربری</a>
+                <a href="{% url 'accounts:profile' pk=request.user.id %}">حساب کاربری</a>
             </li>
             {% else %}
             <li><a href="{% url 'accounts:register' %}">ثبت نام</a> | <a href="{% url 'accounts:login' %}">ورود</a> </li>
             {% endif %}
             <li><a href="{% url 'index:go_home' %}">صفحه نخست</a></li>
-            <li><a href="#">ارتباط با ما</a></li>
-            <li><a href="#">درباره ما</a></li>
             <li class="">
                 <button class="responsive-clothes-dropBtn" onclick="clothDropDown()">لباس ها</button> <i
                     class="fa fa-caret-down"></i>
                 <div class="responsive-clothes-dropDown-content" id="responsive-clothes-dropDown-content">
-                    <a href="#">link 1</a>
-                    <a href="#">link 2</a>
-                    <a href="#">link 3</a>
-                    <a href="#">link 4</a>
-                    <a href="#">link 5</a>
-                    <a href="#">link 6</a>
+                    <a href="{% url 'shop:shop_tshirt' %}">تیشرت زنانه</a>
+                    <a href="{% url 'shop:shop_tops' %}">تاپ</a>
+                    <a href="{% url 'shop:shop_shomiz' %}">شومیز</a>
+                    <a href="{% url 'shop:shop_legs' %}">انواع لگ</a>
+                    <a href="{% url 'shop:shop_hats' %}">کلاه نقاب دار زنانه</a>
+                    <a href="{% url 'shop:under_wear' %}">انواع لباس زیر و نیم تنه</a>
+                    <a href="{% url 'shop:shop_beach_shirt' %}">پیراهن ساحلی</a>
                 </div>
             </li>
+            <li><a href="#">ارتباط با ما</a></li>
+            <li><a href="#">درباره ما</a></li>
         </ul>
     </nav>
 </header>

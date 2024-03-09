@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/css_files/shop_tshirt.css">
+    <link rel="stylesheet" href="/static/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+    <title>فروشگاه</title>
+</head>
+
+<body>
+    {% include 'includes/headers-navbars.html' %}
+
+    {% include 'includes/slid-card-box.html' %}
+
+    {% include 'includes/messages.html' %}
+    <div class="white-space"></div>
+    <div class="content-shop">
+        <div class="shop-product-container">
+            <div class="filter-by">
+                <p class="sort-by-p">ترتیب نمایش</p>
+                <select>
+                    <option>item one</option>
+                    <option>item two</option>
+                    <option>item three</option>
+                </select>
+            </div>
+                <div class="shop-product">
+                    {% for i in beach_shirt %}
+                        <div class="shop-item">
+                            <a href="{% url 'shop:product_details' pk=i.id %}">
+                                <img class="product-img" src="{{ i.main_image.url }}">
+                                <div class="quick-add">
+                                    <a href="{% url 'shop:product_details' pk=i.id %}">جزئیات رنگ ها و سایز ها</a>
+                                </div>
+                                <h1>{{ i.item_name }}</h1>
+                                <p class="shop-item-price">
+                                    <span>تومان</span>
+                                    {{ i.item_price }}
+                                </p>
+                            </a>
+                        </div>
+                    {% endfor %}
+                </div>
+        </div>
+    </div>
+    <script src="/static/js_files/navbars.js"></script>
+    <script src="/static/js_files/shop_tshirt.js"></script>
+</body>
+
+</html>

@@ -6,24 +6,28 @@
         {% for item in cart_items %}
             <div class="card-item">
                 <div class="cart_time_img">
+                    <a title="حذف محصول از سبد" href="{% url 'shop:remove_cart_items' pk=item.id %}"><i class="fa fa-remove"></i></a>
                     <img alt="cart-item-image" src="{{ item.selected_product.main_image.url }}">
                 </div>
                 <div class="card-item-info">
                     <h1>{{ item.selected_product.item_name }}</h1>
                     <button type="button" class="edit-sizeBtn">تغییر سایز و تعداد <i class="fa fa-edit"></i></button>
-                    <p>تعداد :<span>{{ item.selected_quantity}}</span></p>
-                    <p>تومان<span>{{ item.total_price}}</span></p>
+                    <p>سایز :<span>{{ item.selected_size }}</span></p>
+                    <p>رنگ :<span>{{ item.selected_color }}</span></p>
+                    <p>تعداد :<span>{{ item.selected_quantity}}</span></p><br>
+                    <p>قیمت هر واحد</p>
+                    <p>تومان<span>{{ item.selected_product.item_price}}</span></p>
                 </div>
             </div>
         {% empty %}
-            <p class="slid-card-item-quantity">در حال حاضر محصولی به سبد خرید شما اضافه نشد است</p>
+            <p class="slid-card-item-quantity">در حال حاضر هیچ محصولی به سبد خرید شما افزوده نشده</p>
         {% endfor %}
         <div class="card-checkout">
             <div>
                 <p class="cart-total-price-p">جمع کل :</p>
-                <p class="cart-total-price">{{ total_price }}</p>
+                <p class="cart-total-price">{{ total_price }} تومان</p>
             </div>
-            <a href="#">ادامه مراحل پرداخت</a>
+            <a href="{% url 'shop:checkout' %}">ادامه مراحل پرداخت</a><br>
             <button class="second-slid-card-closeBtn" onclick="SlidCardCloseBtn()">بستن پنجره سبد خرید</button>
         </div>
     </div>

@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'home.apps.HomeConfig',
     'accounts.apps.AccountsConfig',
     'shop.apps.ShopConfig',
+    'payment.apps.PaymentConfig',
 ]
 
 MIDDLEWARE = [
@@ -119,6 +120,10 @@ USE_I18N = True
 
 USE_TZ = False
 
+# zarinpal gateway sandboxMode
+# for real mode you have to put your real merchant code in MERCHENT and change SANDBOX to False
+MERCHANT = "00000000-0000-0000-0000-000000000000"
+SANDBOX = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.2/howto/static-files/

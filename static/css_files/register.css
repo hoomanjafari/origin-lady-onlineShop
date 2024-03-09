@@ -62,6 +62,18 @@
     -webkit-appearance: none;
 }
 
+.register-already_registered {
+    text-decoration: none;
+    color: #349DDF;
+    font-weight: 600;
+    font-size: 1.3vw;
+
+}
+
+.register-already_registered:hover {
+    opacity: 60%;
+}
+
 .register-form-box button {
     background-color: #8F080F;
     color: white;
@@ -120,6 +132,10 @@
         font-weight: 600;
         padding: 2vw;
         border-radius: 3vw;
+    }
+
+    .register-already_registered {
+        font-size: 3vw;
     }
 
     .register-form-box button {

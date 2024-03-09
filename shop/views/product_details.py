@@ -1,20 +1,13 @@
 from django.shortcuts import (render, redirect, get_object_or_404)
-from django.contrib import messages
 from django.views import View
-from .models import (AllClothes, AddCart,)
+from django.contrib import messages
+from shop.models import (AllClothes, AddCart)
+from shop.forms import AddCartForm
 from accounts.models import MyUser
-from .forms import AddCartForm
 
 
-class ShopTshirtView(View):
-    def get(self, request):
-        tshirt = AllClothes.objects.all().filter(item_category='3')
-        return render(request, 'shop/shop_tshirt.html', {'tshirt': tshirt})
-
-    def post(self, request):
-        pass
-
-
+# add cart function is in this class too (in def post)
+# remove item cart class is in this file too
 class ProductDetails(View):
     def get(self, request, **kwargs):
         product = get_object_or_404(AllClothes, pk=kwargs['pk'])
@@ -75,3 +68,10 @@ class ProductDetails(View):
             'product': product, 'colores': colores, 'url_data': url_data, 'sizes': sizes, 'form': form,
         })
 
+
+class RemoveCartItem(View):
+    def get(self, request, **kwargs):
+        item = AddCart.objects.get(pk=kwargs['pk'])
+        item.delete()
+        # to redirect user to the current page
+        return redirect(request.META.get('HTTP_REFERER', 'redirect_if_referer_not_found'))

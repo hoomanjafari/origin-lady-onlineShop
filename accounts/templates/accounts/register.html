@@ -21,12 +21,20 @@
                 <form method="post">
                     {% csrf_token %}
                     <input type="number" name="mobile" placeholder="0912 ...">
+                    <a class="register-already_registered" href="{% url 'accounts:login' %}">( قبلا ثبت نام کردم )</a><br>
                     <button type="submit" onclick="localStorage.clear()">ارسال کد یکبار مصرف</button>
                 </form>
                 <a class="register-go-homeBtn" href="{% url 'index:go_home' %}">برگرد به صفحه نخست</a>
             </div>
         </div>
     </main>
+
+    <script>
+        setTimeout(fade_out, 5000);
+        function fade_out() {
+          document.getElementById('messages-framework').style.visibility = 'hidden';
+        }
+    </script>
 
 </body>
 

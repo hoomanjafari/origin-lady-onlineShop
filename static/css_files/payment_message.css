@@ -1,0 +1,159 @@
+@import url('/static/fonts/font-awesome-4.7.0/css/font-awesome.min.css');
+@import url('/static/css_files/messages.css');
+
+
+* {
+    margin: 0;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-weight: 600;
+}
+
+a {
+    text-decoration: none;
+}
+
+.payment-success-container {
+    height: 40vw;
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.payment-success-box {
+    text-align: center;
+
+}
+
+.payment-success-box p {
+    display: inline-block;
+    color: rgb(65, 65, 65);
+}
+
+.payment-success-box-logo {
+    text-align: center;
+}
+
+.payment-success-box-logo img {
+    width: 9vw;
+    border-radius: 9vw;
+}
+
+.p-label {
+    color: darkred !important;
+}
+
+.pay-success-message {
+    font-size: 3vw !important;
+    margin-bottom: 3vw;
+}
+
+.pay-thanks-message {
+    color: darkred !important;
+    margin-top: 4vw;
+    font-size: 1.5vw;
+    width: 26vw;
+}
+
+.payment-home-btn {
+    display: flex;
+    justify-content: center;
+    margin-top: 2vw;
+}
+
+.payment-home-btn a {
+    display: block;
+    padding: 0.5vw 1vw;
+    width: 17vw;
+    border-radius: 0.5vw;
+    background-color: rgb(160, 67, 67);
+    color: white;
+}
+
+.payment-home-btn a:hover {
+    opacity: 60%;
+    transition: 0.2s;
+}
+
+@media (max-width: 1024px) {
+    .payment-success-container {
+        height: 120vw;
+    }
+
+    .payment-success-box-logo img {
+        width: 16vw;
+        border-radius: 9vw;
+    }
+
+    .payment-success-box-logo {
+        margin-bottom: 4vw;
+    }
+
+    .pay-success-message {
+        font-size: 6vw !important;
+        margin-bottom: 6vw;
+    }
+
+    .payment-success-box p {
+        font-size: 4vw;
+    }
+
+    .pay-thanks-message {
+        margin-top: 12vw;
+        font-size: 5vw !important;
+        width: 60vw;
+    }
+
+    .payment-home-btn {
+        margin-top: 6vw;
+    }
+
+    .payment-home-btn a {
+        padding: 1vw 4vw;
+        width: 36vw;
+        font-size: 4vw;
+        border-radius: 1.5vw;
+    }
+}
+
+@media (max-width: 768px) {
+    .payment-success-container {
+        height: 200vw;
+    }
+
+    .payment-success-box-logo img {
+        width: 22vw;
+        border-radius: 15vw;
+    }
+
+    .payment-success-box-logo {
+        margin-bottom: 6vw;
+    }
+
+    .pay-success-message {
+        font-size: 8vw !important;
+        margin-bottom: 9vw;
+    }
+
+    .payment-success-box p {
+        font-size: 5vw;
+    }
+
+    .pay-thanks-message {
+        margin-top: 12vw;
+        font-size: 6vw !important;
+        width: 90%;
+    }
+
+    .payment-home-btn {
+        margin-top: 9vw;
+    }
+
+    .payment-home-btn a {
+        padding: 2vw 6vw;
+        width: 56vw;
+        font-size: 6vw;
+        border-radius: 1.5vw;
+    }
+}
+

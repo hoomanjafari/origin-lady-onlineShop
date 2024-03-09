@@ -1,3 +1,7 @@
+* {
+    font-weight: 600;
+}
+
 .slid-card-container {
     position: fixed;
     height: 100%;
@@ -36,14 +40,16 @@
     padding-bottom: 1vw;
     border-bottom: 3px solid #8F080F;
     text-align: center;
-    width: 33vw;
+    width: 39vw;
 }
 
 .slid-card-item-quantity {
     margin: 3vw 2vw;
+    text-align: center;
     font-size: 1.3vw;
     font-weight: 600;
     color: #adadad;
+    width: 39vw;
 }
 
 .card-item {
@@ -56,8 +62,13 @@
 .cart_time_img {
     display: inline-block;
     height: auto;
-    width: 7vw;
+    width: 12vw;
     margin-right: 3vw;
+}
+
+.cart_time_img a {
+    color: red;
+    font-size: 1.6vw;
 }
 
 .card-item img {
@@ -68,18 +79,22 @@
 
 .card-item-info {
     display: inline-block;
+    color: #8F080F;
 }
 
 .card-item-info h1 {
-    font-size: 2vw;
+    font-size: 1.5vw;
+    font-weight: 600;
 }
 
 .edit-sizeBtn {
     background: none;
     border: none;
-    color: #8F080F;
+    color: #349DDF;
+    padding: 0;
     cursor: pointer;
     font-size: 1.3vw;
+    font-weight: 600;
     margin: 1.4vw 0;
 }
 
@@ -121,12 +136,13 @@
     text-align: center;
     padding: 1vw;
     margin-bottom: 4vw;
-    width: 30vw;
+    width: 39vw;
 }
 
 .card-checkout a {
     padding: 0.5vw 6vw;
     font-size: 1.6vw;
+    font-weight: 600;
     background-color: #8F080F;
     color: white;
 }
@@ -149,37 +165,52 @@
     opacity: 60%;
 }
 
-@media (max-width: 1025px) {
+@media screen and (max-width: 990px) {
     .slid-card-closeBtn {
         font-size: 5vw;
+    }
+
+    .second-slid-card-closeBtn {
+        font-size: 2.2vw;
     }
 
     .slid-card-p {
         font-size: 3vw;
         margin: 0 0 4vw;
         padding-bottom: 3vw;
-        width: 41vw;
+        width: 66vw;
     }
 
     .card-item-price {
         font-size: 2vw;
-        width: 38vw;
+        width: 60vw;
     }
 
     .cart_time_img {
-        width: 8vw;
+        width: 16vw;
+        margin:0 7vw;
+    }
+
+    .cart_time_img a {
+        color: red;
+        font-size: 2.6vw;
     }
 
     .card-checkout {
         text-align: center;
         padding: 3vw;
         margin-bottom: 4vw;
-        width: 36vw;
+        width: 60vw;
+    }
+
+    .card-item-info h1 {
+        font-size: 2.3vw;
+        font-weight: 600;
     }
 
     .card-checkout a {
-        padding: 1vw 4.4vw;
-        font-size: 2.4vw;
+        padding: 0.6vw 4.4vw;
+        font-size: 3vw;
     }
 
     .cart-total-price-p {
@@ -191,27 +222,27 @@
     }
 
     .slid-card-item-quantity {
-        font-size: 2vw;
+        font-size: 2.5vw;
+        width: 55vw;
     }
 
     .edit-sizeBtn {
-        font-size: 5vw;
-        margin: 1.4vw 0;
+        font-size: 2vw;
+        margin: 1vw 0;
     }
 
     .edit-sizeBtn i {
-        font-size: 6vw;
-        padding-left: 4vw;
+        font-size: 2.3vw;
     }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 672px) {
     .slid-card-closeBtn {
         font-size: 6vw;
     }
 
     .second-slid-card-closeBtn {
-        font-size: 4vw;
+        font-size: 3vw;
         padding: 1.5vw 5vw;
         border-radius: 3vw;
         margin-top: 7vw;
@@ -221,11 +252,12 @@
         font-size: 6vw;
         margin: 0 0 6vw;
         padding-bottom: 6vw;
-        width: 66vw;
+        width: 72vw;
     }
 
     .slid-card-item-quantity {
         margin: 9vw 3vw;
+        width: 100%;
         font-size: 3vw;
     }
 
@@ -236,12 +268,17 @@
     }
 
     .cart_time_img {
-        margin-right: 3vw;
-        width: 13vw;
+        margin: 0 3vw 0 1vw;
+        width: 24vw;
+    }
+
+    .cart_time_img a {
+        color: red;
+        font-size: 3vw;
     }
 
     .card-item-info h1 {
-        font-size: 4vw;
+        font-size: 3vw;
     }
 
     .card-item-info p {
@@ -255,7 +292,6 @@
 
     .edit-sizeBtn i {
         font-size: 4vw;
-        padding-left: 4vw;
     }
 
     .card-item-price {
@@ -271,8 +307,8 @@
     }
 
     .card-checkout a {
-        padding: 2vw 9vw;
-        font-size: 4vw;
+        padding: 1vw 9vw;
+        font-size: 3vw;
     }
 
     .cart-total-price-p {
@@ -282,5 +318,9 @@
     .cart-total-price {
         margin-bottom: 7vw;
         font-size: 4vw;
+    }
+    .slid-card-item-quantity {
+        font-size: 3vw;
+        width: 55vw;
     }
 }

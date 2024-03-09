@@ -3,6 +3,7 @@ from django.contrib.auth import (login, authenticate, logout)
 from django.contrib import messages
 from django.views import View
 from accounts.forms import LoginForm
+from shop.models import AddCart
 
 
 class LoginView(View):
@@ -19,8 +20,21 @@ class LoginView(View):
         if form.is_valid():
             cd = form.cleaned_data
             user = authenticate(mobile=cd['mobile'], password=cd['password'])
+            guest_cart = AddCart.objects.filter(guest_session_id=request.session.session_key)
+            payment_url = request.session.get('payment_url')
             if user is not None:
                 login(request, user)
+                # to save geust cart in his account cart
+                if guest_cart is not None:
+                    for i in guest_cart:
+                        i.customer = user
+                        i.save()
+                # to redirect user to checkout page
+                if payment_url is not None:
+                    messages.success(request, 'وارد حساب کاریری خود شدید', 'success')
+                    del request.session['payment_url']
+                    return redirect(payment_url)
+
                 messages.success(request, 'وارد حساب کاریری خود شدید', 'success')
                 return redirect('index:go_home')
             messages.error(request,
@@ -35,4 +49,5 @@ class LoginView(View):
 class LogoutView(View):
     def get(self, request):
         logout(request)
-        return redirect('index:go_home')
+        messages.success(request, 'شما از حساب خود با موفقیت خارج شدید', 'success')
+        return redirect('accounts:login')

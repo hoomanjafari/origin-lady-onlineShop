@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/css_files/payment_message.css">
+    <title>Title</title>
+</head>
+<body>
+    {% include 'includes/messages.html' %}
+    <main class="payment-success-container">
+        <div class="payment-success-box">
+            <div class="payment-success-box-logo">
+                <img src="/static/images/photo_2024-01-24_03-01-10.jpg" alt="site-logo">
+            </div>
+            <p class="pay-success-message">پرداخت با شکست مواجه شد</p><br>
+
+            <p class="pay-thanks-message">
+                پرداخت با شکست مواجه شده است. اگر پول از حساب شما کم شده است ظرف مدت ۴۸ ساعت پول به حساب شما بازخواهد گشت
+            </p>
+
+            <div class="payment-home-btn">
+                <a href="{% url 'index:go_home' %}">برگشت به صفحه نخست</a>
+            </div>
+        </div>
+    </main>
+</body>
+</html>

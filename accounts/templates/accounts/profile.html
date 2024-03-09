@@ -57,7 +57,8 @@
                     </div>
                     <div>
                         <label>شماره تماس</label><br>
-                        <input placeholder="0912 ..." class="tel-input" type="text" name="address_mobile" pattern="[0-9]{11}">
+                        <input placeholder="0912 ..." class="tel-input" type="text" name="address_mobile"
+                               pattern="[0-9]{11}" value="{{ user.mobile }}" readonly>
                         <span></span>
                     </div>
                     <div class="ir-select">
@@ -68,13 +69,13 @@
                     </div>
                     <div class="display-inlineBlock">
                         <label>ادرس</label><br>
-                        <input type="text" name="address">
-                    </div>
+{#                        <input class="profile-address-field" type="text" name="address">#}
+                        <textarea class="profile-address-field" name="address" rows="3"></textarea>
+                    </div><br>
                     <div class="display-inlineBlock">
                         <label>کد پستی</label><br>
                         <input type="number" name="postal_code">
                     </div>
-
                     <button class="save-addressBtn" type="submit">ذخیره اطلاعات</button>
                 </form>
             </div>
@@ -98,23 +99,26 @@
 
             <p class="address-p">ادرس ها</p>
             <div class="address">
-                <div>
 
-                    <button onclick="AddAddressOpenBtn()" class="add-addressBtn" type="button">افزودن ادرس <i
-                            class="fa fa-plus"></i></button>
-                </div>
-                {% for user_address in user_address %}
+
+                {% for address in user_address %}
                     <div class="address-info">
-                        <p>{{ user_address.name }}</p>
-                        <p>{{ user_address.family }}</p>
-                        <p>+98 {{ user_address.address_mobile }}</p>
-                        <p>{{ user_address.state }}</p>
-                        <p>{{ user_address.city }}</p>
-                        <p>{{ user_address.address }}</p>
-                        <p>{{ user_address.postal_code }}</p>
-                    </div>
+                        <p>{{ address.name }}</p>
+                        <p>{{ address.family }}</p>
+                        <p>+98 {{ address.address_mobile }}</p>
+                        <p>{{ address.state }}</p>
+                        <p>{{ address.city }}</p>
+                        <p>{{ address.address }}</p>
+                        <p>{{ address.postal_code }}</p>
+                    </div><br>
+                    <a class="remove-address" href="{% url 'accounts:remove_user_address' pk=address.id %}">حذف ادرس</a>
                 {% empty %}
-                    <p>ادرس وارد نشده</p>
+                    <div>
+                        <button onclick="AddAddressOpenBtn()" class="add-addressBtn" type="button">افزودن ادرس <i
+                            class="fa fa-plus"></i>
+                        </button>
+                    </div>
+                    <p class="no-address-yet-p">هنوز ادرسی افزوده نشده</p>
                 {% endfor %}
             </div>
         </div>

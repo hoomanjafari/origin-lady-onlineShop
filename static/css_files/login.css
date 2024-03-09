@@ -157,4 +157,8 @@
         padding: 2vw;
         border-radius: 3vw;
     }
+
+    .forgot-password {
+        font-size: 3vw;
+    }
 }

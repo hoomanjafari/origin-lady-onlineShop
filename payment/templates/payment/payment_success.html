@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/css_files/payment_message.css">
+    <title>Title</title>
+</head>
+<body>
+    {% include 'includes/messages.html' %}
+    <main class="payment-success-container">
+        <div class="payment-success-box">
+            <div class="payment-success-box-logo">
+                <img src="/static/images/photo_2024-01-24_03-01-10.jpg" alt="site-logo">
+            </div>
+            <p class="pay-success-message">پرداخت با موفقیت انجام شد</p><br>
+
+            <p class="p-label">شماره تماس خریدار : </p>
+            <p>+98 {{ payment.customer.mobile }}</p><br>
+
+            <p class="p-label">کد تراکنش : </p>
+            <p>{{ payment.track_id }}</p><br>
+
+            <p class="p-label">مبلغ پرداخت شده : </p>
+            <p> تومان{{ payment.total_paid }}</p><br>
+
+            <p class="pay-thanks-message">
+                از این که فروشگاه اورجین لیدی رو انتخاب کردید از شما سپاس گزاریم<br>
+                <i class="fa fa-heart"></i>
+            </p>
+            <div class="payment-home-btn">
+                <a href="{% url 'index:go_home' %}">برگشت به صفحه نخست</a>
+            </div>
+        </div>
+    </main>
+</body>
+</html>

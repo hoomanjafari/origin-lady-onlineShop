@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>جزئیات سبد خرید</title>
+    <link rel="stylesheet" href="/static/css_files/checkout.css">
+    <link rel="stylesheet" href="/static/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+    {% include 'includes/mini_navbar.html' %}
+    {% include 'includes/slid-card-box.html' %}
+    {% include 'includes/messages.html' %}
+    <main class="checkout-main">
+        <div class="white-space"></div>
+        <section class="checkout-container">
+            <div class="show-cart-summery">
+                <button id="show-cart-summeryBtn" onclick="show_cart_summery()">
+                    نمایش سبد خرید <i class="fa fa-arrow-down"></i>
+                </button>
+                <p class="responsive-checkout-total-price">جمع کل :{{ total_price }} تومان</p>
+            </div>
+            <div class="checkout-customer-cart-container" id="checkout-customer-cart-container">
+                {% for item in cart_items %}
+                    <div class="checkout-customer-cart-item">
+                        <div class="checkout-customer-cart-item-img">
+                            <a href="{% url 'shop:remove_cart_items' pk=item.id %}"><i class="fa fa-remove"></i></a>
+                            <img src="{{ item.selected_product.main_image.url }}" alt="product-image">
+                        </div>
+                        <div class="checkout-customer-cart-item-details">
+                            <p>{{ item.selected_product.item_name }}</p>
+                            <p class="checkout-customer-cart-item-details-price ">
+                                قیمت هر واحد :
+                            </p>
+                            <p class="checkout-customer-cart-item-details-price ">
+                                {{ item.selected_product.item_price }}
+                                تومان</p>
+                            <p>رنگ :<span>{{ item.selected_color }}</span></p>
+                            <p>سایز :<span>{{ item.selected_size }}</span></p>
+                            <p class="checkout-customer-cart-item-details-quantity">
+                                عدد {{ item.selected_quantity }}
+                            </p>
+                        </div>
+                    </div>
+                {% empty %}
+                    <div class="checkout-cart-item-empty">
+                        <p>( هیچ محصولی به سبد خرید شما افزوده نشده )</p>
+                    </div>
+                {% endfor %}
+                <p class="checkout-total-price">جمع کل :{{ total_price }} تومان</p>
+            </div>
+
+            <div class="checkout-customer-address-info">
+                {% if not user_address.exists %}
+                <form method="post">
+                    {% csrf_token %}
+                    <label>نام</label><br>
+                    <input type="text" name="name"><br>
+                    <label>نام خانوادگی</label><br>
+                    <input type="text" name="family"><br>
+                    <label>شماره تماس</label><br>
+                    <input name="address_mobile" readonly type="number" value="{{ request.user.mobile }}">
+                    <div class="ir-select">
+                        <label>استان</label><br>
+                        <select class="ir-province select-city" name="state"></select><br>
+                        <label>شهر</label><br>
+                        <select class="ir-city select-city" name="city"></select>
+                    </div>
+                    <label>ادرس</label><br>
+                    <textarea rows="3" name="address"></textarea><br>
+                    <label>کد پستی</label><br>
+                    <input name="postal_code" type="number"><br>
+                    <div class="checkout-paymentBtn">
+                        <button class="checkout-paymentBtn" type="submit">اتصال به درگاه پرداخت</button>
+                    </div>
+                </form>
+                {% elif user_address.exists %}
+                    {% for address in user_address %}
+                        <div class="checkout-user-address">
+                            <p>{{ address.name }} : نام</p>
+                            <p>{{ address.family }} : نام خانوادگی</p>
+                            <p>+98 {{ address.address_mobile }}</p><br>
+                            <p>{{ address.state }}</p>
+                            <p>{{ address.city }}</p>
+                            <p>{{ address.address }}</p><br>
+                            <p><span>کد پستی</span></p>
+                            <p>{{ address.postal_code }}</p>
+                            <div class="checkout-paymentBtn2">
+                                <a href="{% url 'payment:payment' %}">اتصال به درگاه پرداخت</a>
+                            </div>
+                        </div><br>
+                    {% endfor %}
+                {% endif %}
+
+            </div>
+        </section>
+    </main>
+    <script language="javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script language="javascript" src="https://cdn.jsdelivr.net/npm/select2@4.0.13/dist/js/select2.min.js"></script>
+    <script language="javascript" src="/static/js_files/navbars.js"></script>
+    <script language="javascript" src="/static/js_files/city.js"></script>
+    <script language="javascript" src="/static/js_files/checkout.js"></script>
+</body>
+</html>
