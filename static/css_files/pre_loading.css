@@ -1,0 +1,40 @@
+.loading-gifs {
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    z-index: 20;
+    background-color: rgba(248, 248, 248, 0.77);
+    display: none;
+    align-items: center;
+    justify-content: center;
+}
+
+.loading-gifs img {
+    width: 20vw;
+    border-radius: 20vw;
+}
+
+/*=========================( general_pre_loading )==========================*/
+
+.general-loading-gifs {
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    z-index: 20;
+    background-color: rgba(248, 248, 248, 0.77);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.general-loading-gifs img {
+    width: 20vw;
+    border-radius: 20vw;
+}
+
+@media (max-width: 1024px) {
+    .general-loading-gifs img,
+    .loading-gifs img {
+        width: 40vw;
+    }
+}

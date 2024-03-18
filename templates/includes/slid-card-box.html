@@ -2,7 +2,7 @@
     <div class="slid-card-box" id="slid-card-box">
         <button class="slid-card-closeBtn" onclick="SlidCardCloseBtn()"><i class="fa fa-window-close"></i></button>
         <p class="slid-card-p">سبد خرید شما</p>
-        <p class="slid-card-item-quantity">مجموع تعداد محصولات در سبد کالا : <span>{{ cart_items_count }}</span> عدد</p>
+        <p class="slid-card-item-quantity"> تعداد محصولات در سبد کالا : <span>{{ cart_items_count }}</span> عدد</p>
         {% for item in cart_items %}
             <div class="card-item">
                 <div class="cart_time_img">
@@ -11,7 +11,6 @@
                 </div>
                 <div class="card-item-info">
                     <h1>{{ item.selected_product.item_name }}</h1>
-                    <button type="button" class="edit-sizeBtn">تغییر سایز و تعداد <i class="fa fa-edit"></i></button>
                     <p>سایز :<span>{{ item.selected_size }}</span></p>
                     <p>رنگ :<span>{{ item.selected_color }}</span></p>
                     <p>تعداد :<span>{{ item.selected_quantity}}</span></p><br>
@@ -22,13 +21,15 @@
         {% empty %}
             <p class="slid-card-item-quantity">در حال حاضر هیچ محصولی به سبد خرید شما افزوده نشده</p>
         {% endfor %}
-        <div class="card-checkout">
-            <div>
-                <p class="cart-total-price-p">جمع کل :</p>
-                <p class="cart-total-price">{{ total_price }} تومان</p>
+        {% if cart_items.exists %}
+            <div class="card-checkout">
+                <div>
+                    <p class="cart-total-price-p">جمع کل :</p>
+                    <p class="cart-total-price">{{ total_price }} تومان</p>
+                </div>
+                <a href="{% url 'shop:checkout' %}">ادامه مراحل پرداخت</a><br>
+                <button class="second-slid-card-closeBtn" onclick="SlidCardCloseBtn()">بستن پنجره سبد خرید</button>
             </div>
-            <a href="{% url 'shop:checkout' %}">ادامه مراحل پرداخت</a><br>
-            <button class="second-slid-card-closeBtn" onclick="SlidCardCloseBtn()">بستن پنجره سبد خرید</button>
-        </div>
+        {% endif %}
     </div>
 </section>

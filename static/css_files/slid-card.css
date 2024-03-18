@@ -62,7 +62,7 @@
 .cart_time_img {
     display: inline-block;
     height: auto;
-    width: 12vw;
+    width: 7vw;
     margin-right: 3vw;
 }
 
@@ -95,7 +95,6 @@
     cursor: pointer;
     font-size: 1.3vw;
     font-weight: 600;
-    margin: 1.4vw 0;
 }
 
 .edit-sizeBtn i {
@@ -155,14 +154,13 @@
     border: none;
     border-radius: 3vw;
     margin-top: 4vw;
+    cursor: pointer;
 }
 
+.card-checkout a:hover,
 .second-slid-card-closeBtn:hover {
     opacity: 60%;
-}
-
-.card-checkout a:hover {
-    opacity: 60%;
+    transition: 0.3s;
 }
 
 @media screen and (max-width: 990px) {
@@ -256,25 +254,25 @@
     }
 
     .slid-card-item-quantity {
-        margin: 9vw 3vw;
-        width: 100%;
-        font-size: 3vw;
+        margin-left: 4vw !important;
+        width: 63vw !important;
+        font-size: 5vw !important;
     }
 
     .card-item {
         margin-bottom: 9vw;
-        padding: 0 6vw 3vw;
+        padding: 2vw 3vw;
         width: 90vw;
     }
 
     .cart_time_img {
         margin: 0 3vw 0 1vw;
-        width: 24vw;
+        width: 29vw;
     }
 
     .cart_time_img a {
         color: red;
-        font-size: 3vw;
+        font-size: 6vw;
     }
 
     .card-item-info h1 {
@@ -287,7 +285,7 @@
 
     .edit-sizeBtn {
         font-size: 3vw;
-        margin: 1.4vw 0;
+        margin: 0.5vw 0;
     }
 
     .edit-sizeBtn i {
@@ -307,8 +305,9 @@
     }
 
     .card-checkout a {
-        padding: 1vw 9vw;
-        font-size: 3vw;
+        padding: 2vw 9vw;
+        font-size: 4vw;
+        border-radius: 1.5vw;
     }
 
     .cart-total-price-p {

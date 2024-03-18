@@ -18,7 +18,7 @@ window.addEventListener('scroll', function () {
   if (st < lastScrollTopI) {
     document.getElementById('responsive-fixed-nav').style.top = '0';
   } else {
-    document.getElementById('responsive-fixed-nav').style.top = '-13vw';
+    document.getElementById('responsive-fixed-nav').style.top = '-16vw';
   }
   lastScrollTopI = st;
 }, false)
@@ -100,4 +100,18 @@ function SlidCardOpenBtn() {
 setTimeout(fade_out, 5000);
   function fade_out() {
       document.getElementById('messages-framework').style.visibility = 'hidden';
+}
+
+/* ====================================( search-box )=============================================== */
+
+const search_box = document.getElementById('search-box')
+
+function searchBoxBtn() {
+  search_box.style.maxWidth = '94vw';
+  document.getElementById('search-container').style.visibility = 'visible';
+}
+
+function searchBoxCloseBtn() {
+  search_box.style.maxWidth = '0';
+  document.getElementById('search-container').style.visibility = 'hidden';
 }

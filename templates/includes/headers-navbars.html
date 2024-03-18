@@ -1,5 +1,16 @@
+<!-- ------------------------( search-box )------------------------ -->
+<section class="search-container" id="search-container">
+    <button class="search-box-close-btn" onclick="searchBoxCloseBtn()">
+        <i class="fa fa-window-close"></i>
+    </button>
+    <div class="search-box" id="search-box">
+        <form method="get" action="{% url 'shop:search_result' %}">
+            <input name="search" type="text" placeholder="... اسم محصول یا نوع محصول رو وارد کنید">
+            <button type="submit"><i class="fa fa-search"></i></button>
+        </form>
+    </div>
+</section>
 <!-- ------------------------( header-onScroll )------------------------ -->
-
 <header class="header-onScroll" id="header-onScroll">
     <div class="header-onScroll-site-name">
         <a href="{% url 'index:go_home' %}">
@@ -41,7 +52,7 @@
         <li class="search-bag-icon">
             <button class="slid-card-openBtn" type="button" onclick="SlidCardOpenBtn()"><i
                     class="fa fa-shopping-bag"></i> {{ cart_items_count }}</button>
-            <a href="#"><i class="fa fa-search"></i></a>
+            <button class="search-box-open-btn" onclick="searchBoxBtn()"><i class="fa fa-search"></i></button>
         </li>
     </ul>
 </header>
@@ -59,12 +70,16 @@
             </li>
         {% elif request.user.is_authenticated %}
             <li class="fixed-nav-user_authenticated_id">
-                <p>{{ request.user.mobile }} <i class="fa fa-user"></i></p>
+                <a href="{% url 'accounts:profile' pk=request.user.id %}">{{ request.user.mobile }} <i class="fa fa-user"></i></a>
             </li>
         {% endif %}
-        <li><button type="button" onclick="SlidCardOpenBtn()"><i class="fa fa-shopping-bag"></i></button></li>
-        <li class="nav-cart-quantiry"><p>{{ cart_items_count }}</p></li>
-        <li><a href="#"><i class="fa fa-search"></i></a></li>
+        <li>
+            <button type="button" onclick="SlidCardOpenBtn()">
+                <li class="nav-cart-quantity"><p>{{ cart_items_count }}</p></li>
+                <i class="fa fa-shopping-bag"></i>
+            </button>
+        </li>
+        <button class="search-box-open-btn" onclick="searchBoxBtn()"><i class="fa fa-search"></i></button>
     </ul>
 </nav>
 <div class="clear-fixed"></div>
@@ -76,21 +91,31 @@
     <nav>
         <button class="window-close-btn" onclick="closeMenuBar()"><i class="fa fa-window-close"></i></button>
         <ul>
-            <div class="responsive-logo">
-                <img src="/static/images/photo_2024-01-24_03-01-10.jpg">
-            </div>
+            <a href="{% url 'index:go_home' %}">
+                <div class="responsive-logo">
+                    <img alt="logo-image" src="/static/images/photo_2024-01-24_03-01-10.jpg">
+                </div>
+            </a>
             {% if request.user.is_authenticated %}
             <li>
+                 <i class="fa fa-user"></i>
                 <a href="{% url 'accounts:logout' %}">خروج از حساب</a> |
                 <a href="{% url 'accounts:profile' pk=request.user.id %}">حساب کاربری</a>
             </li>
             {% else %}
-            <li><a href="{% url 'accounts:register' %}">ثبت نام</a> | <a href="{% url 'accounts:login' %}">ورود</a> </li>
+            <li>
+                 <i class="fa fa-user"></i>
+                <a href="{% url 'accounts:register' %}">ثبت نام</a> | <a href="{% url 'accounts:login' %}">ورود</a>
+            </li>
             {% endif %}
-            <li><a href="{% url 'index:go_home' %}">صفحه نخست</a></li>
+            <li>
+                <i class="fa fa-home"></i>
+                <a href="{% url 'index:go_home' %}">صفحه نخست</a>
+            </li>
             <li class="">
-                <button class="responsive-clothes-dropBtn" onclick="clothDropDown()">لباس ها</button> <i
-                    class="fa fa-caret-down"></i>
+                <i class="fa fa-female"></i>
+                <button class="responsive-clothes-dropBtn" onclick="clothDropDown()">لباس ها</button>
+                <i class="fa fa-caret-down"></i>
                 <div class="responsive-clothes-dropDown-content" id="responsive-clothes-dropDown-content">
                     <a href="{% url 'shop:shop_tshirt' %}">تیشرت زنانه</a>
                     <a href="{% url 'shop:shop_tops' %}">تاپ</a>
@@ -101,8 +126,14 @@
                     <a href="{% url 'shop:shop_beach_shirt' %}">پیراهن ساحلی</a>
                 </div>
             </li>
-            <li><a href="#">ارتباط با ما</a></li>
-            <li><a href="#">درباره ما</a></li>
+            <li>
+                 <i class="fa fa-phone"></i>
+                <a href="#">ارتباط با ما</a>
+            </li>
+            <li>
+                 <i class="fa fa-star"></i>
+                <a href="#">درباره ما</a>
+            </li>
         </ul>
     </nav>
 </header>

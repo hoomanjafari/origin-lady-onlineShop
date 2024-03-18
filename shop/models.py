@@ -65,7 +65,7 @@ class AddCart(models.Model):
     def __str__(self):
         if self.customer is not None:
             return f'(Product : x{self.selected_quantity} {self.selected_product.item_name} Id : {self.selected_product.id}) -- ( Customer_number : ' \
-                   f' {self.customer} ) -- ( Total price {self.total_price} -- is_paid : {self.is_paid} )'
+                   f' {self.customer} ) -- ( Total price {self.total_price} -- is_paid : {self.is_paid} ) -- ({self.id})'
         else:
             return f'(Product : x{self.selected_quantity} {self.selected_product.item_name} Id : {self.selected_product.id}) -- ( Guest_session_id : ' \
                    f' {self.guest_session_id} ) -- ( Total price {self.total_price} )'

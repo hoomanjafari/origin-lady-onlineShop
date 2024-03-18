@@ -23,7 +23,11 @@
 
     {% include 'includes/headers-navbars.html' %}
 
-    <!-- ---------------------------------( main-content )--------------------------------------===-------->
+    <!-- ---------------------------------( pre_loading )------------------------------------------------->
+
+    {% include 'includes/general_pre_loading.html' %}
+
+    <!-- ---------------------------------( main-content )------------------------------------------------>
 
     <main class="content">
         <div class="border-middle-text">
@@ -127,16 +131,15 @@
             <p class="swiper-new-products-p">Origin Lady درباره</p>
         </div>
         <div class="content-aboutUs">
+            <div class="object-rightSide" id="object-rightSide">
+                <img src="/static/images/photo_2024-01-24_03-01-10.jpg">
+            </div>
             <div class="object-leftSide" id="object-leftSide">
                 <div class="aboutUs-text-border"></div>
                 <p>
                     فروش کیف و کفش خاص برای افراد خاص در فروشگاهی خاص به نام فلان. اگر خاص هستید و روی چیزهای خاص دست می
                     گذارید، اکنون زمانش فرا رسیده که به فروشگاه ما مراجعه نمایید منتظرتان هستیم
                 </p>
-            </div>
-
-            <div class="object-rightSide" id="object-rightSide">
-                <img src="/static/images/photo_2024-01-24_03-01-10.jpg">
             </div>
         </div>
 
@@ -211,6 +214,7 @@
     <!-- -------------------( scripts )----------------------------- -->
 
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="/static/js_files/pre_loading.js"></script>
     <script language="javascript" src="/static/js_files/navbars.js"></script>
     <script language="javascript" src="/static/js_files/index.js"></script>
 </body>

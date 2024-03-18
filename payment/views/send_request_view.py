@@ -1,6 +1,7 @@
 from django.shortcuts import redirect
 from django.views import View
 from django.conf import settings
+from django.contrib import messages
 import json
 import requests
 from django.http import HttpResponse
@@ -19,7 +20,7 @@ ZP_API_STARTPAY = f"https://{sandbox}.zarinpal.com/pg/StartPay/"
 description = "توضیحات مربوط به تراکنش را در این قسمت وارد کنید"
 currency = 'IRT'
 # CallbackURL should be change to real url
-CallbackURL = 'http://127.0.0.1:8000/payment/pay/verify/'
+CallbackURL = 'http://192.168.1.6:8000/payment/pay/verify/'
 
 
 class SendRequestView(View):
@@ -53,12 +54,12 @@ class SendRequestView(View):
                 url = f"{ZP_API_STARTPAY}{response['Authority']}"
                 return redirect(url)
             else:
-                e_code = response['errors']['code']
-                e_message = response['errors']['message']
-                print(f'error code : {e_code}, error message : {e_message}')
-                return HttpResponse(f'error code : {e_code}, error message : {e_message}')
+                print('status :', response['Status'])
+                messages.error(request, 'سبد خرید شما خالی است. میتوانید از فروشگاه سایت محصول خود را انتخاب کنید', 'danger')
+                return redirect(request.META.get('HTTP_REFERER', 'redirect_if_referer_not_found'))
         else:
             e_code = res.json()['errors']['code']
             e_message = res.json()['errors']['message']
             print(f'error code : {e_code}, error message : {e_message}')
-            return HttpResponse(f'error code : {e_code}, error message : {e_message}')
+            messages.error(request, f' مشکلی در ایجاد اتصال با درگاه به وجود امده{res.status_code}', 'danger')
+            return redirect(request.META.get('HTTP_REFERER', 'redirect_if_referer_not_found'))

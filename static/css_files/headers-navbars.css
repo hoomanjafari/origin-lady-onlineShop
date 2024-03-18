@@ -1,3 +1,5 @@
+@import url('/static/css_files/search_box.css');
+
 .clear-fixed {
     clear: both;
 }
@@ -76,6 +78,14 @@ a {
     margin: 0 3vw;
     font-size: 1.5vw;
     font-weight: 600;
+}
+
+.search-box-open-btn {
+    background: none;
+    color: #8F080F;
+    border: none;
+    font-size: 1.4vw;
+    cursor: pointer;
 }
 
 .user_authenticated_id {
@@ -175,9 +185,10 @@ a {
     cursor: pointer;
 }
 
-.slid-card-openBtn:hover {
+.slid-card-openBtn:hover,
+.search-box-open-btn:hover {
     transform: rotate(-0.16turn);
-    transition: 0.3s;
+    transition: 0.9s;
 }
 
 /* ==============( responsive-fixed-nav ) ============================================== */
@@ -187,7 +198,7 @@ a {
     position: fixed;
     top: 0;
     width: 100%;
-    height: 13vw;
+    height: 15vw;
     display: none;
     z-index: 8;
     transition: 0.3s;
@@ -200,17 +211,18 @@ a {
 }
 
 .fixed-nav-login-register {
-    background-color: #BBBBBB;
-    color: black !important;
+    background-color: #8F080F;
+    color: #ffffff !important;
     font-weight: 600;
-    font-size: 4.4vw !important;
+    font-size: 5.5vw !important;
     padding: 0.5vw 2vw !important;
     border-radius: 1vw;
 }
 
 .fixed-nav-login-register a {
-    margin: 0 3vw;
+    margin: 0 2vw;
     font-weight: 600;
+    color: white !important;
 }
 
 .responsive-fixed-nav li {
@@ -230,18 +242,22 @@ a {
     padding: 3vw;
 }
 
-.nav-cart-quantiry {
+.nav-cart-quantity p {
     position: absolute;
-    right: 17vw;
-    top: 6vw;
-    color: #ffffff;
+    right: 23vw;
+    top: 9vw;
+    color: #e7dbdb;
 }
 
 .fixed-nav-user_authenticated_id {
     background-color: #8F080F;
     color: white !important;
-    padding: 1vw 6vw !important;
+    padding: 1vw 3vw !important;
     border-radius: 2vw;
+}
+
+.fixed-nav-user_authenticated_id a {
+    color: white !important;
 }
 
 /* ==============( responsive-header-navbar ) ========================================== */
@@ -298,12 +314,13 @@ a {
 }
 
 .responsive-header i {
-    color: black;
+    color: #520608;
+    font-size: 6vw;
 }
 
 .responsive-clothes-dropDown-content a {
     display: block;
-    padding: 3vw 6vw;
+    margin: 5vw 0;
     border-bottom: dashed 2px #BBBBBB;
     font-size: 5vw;
     text-align: right;
@@ -335,10 +352,9 @@ a {
     margin: 4vw;
 }
 
-.responsive-accessory-dropDown-content a {
-    display: block;
-    font-size: 7.7vw;
-    border-bottom: dashed 2px #BBBBBB;
+.window-close-btn i {
+    font-size: 7vw;
+    color: #2a2020;
 }
 
 .responsive-accessory-dropDown-content {
@@ -375,6 +391,11 @@ a {
         font-size: 6vw;
     }
 
+    .search-box-open-btn {
+        font-size: 1.4vw;
+        color: black;
+    }
+
     .responsive-header img {
         width: 22vw;
         height: 22vw;
@@ -398,6 +419,14 @@ a {
 
     .responsive-header {
         display: block;
+    }
+
+    .responsive-header li {
+        font-size: 5vw;
+    }
+
+    .responsive-clothes-dropBtn {
+        font-size: 5vw !important;
     }
 
     .responsive-fixed-nav {

@@ -70,7 +70,7 @@
     .footer-leftSide,
     .footer-rightSide {
         display: block;
-        margin: 1vw auto;
+        margin: 0 auto;
         position: relative;
         width: 60vw;
         right: 0;

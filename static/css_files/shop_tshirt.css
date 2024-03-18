@@ -104,6 +104,27 @@ a {
     cursor: pointer;
 }
 
+.result-not-found {
+    font-size: 3vw;
+    font-weight: 600;
+    color: #8F080F;
+    padding: 3vw;
+    width: 100%;
+    text-align: center;
+}
+
+.result-not-found-img {
+    width: 9vw;
+}
+
+.result-not-found-img img {
+    width: 100%;
+}
+
+.search-result-body {
+    background-color: #F4F4F6;
+}
+
 @media (max-width: 1025px) {
     .quick-add {
         position: relative;
@@ -113,8 +134,31 @@ a {
         width: 19vw;
         height: 3vw;
     }
+
     .shop-item-price {
         font-size: 2vw !important;
+    }
+
+    .result-not-found {
+        font-size: 6vw;
+        padding: 6vw 0;
+        width: 100%;
+        text-align: center;
+    }
+
+    .searched-words {
+        font-size: 4vw;
+        padding: 4vw 0;
+        width: 100%;
+        text-align: center;
+    }
+
+    .result-not-found-img {
+        width: 13vw;
+    }
+
+    .result-not-found-img img {
+        width: 100%;
     }
 }
 
@@ -160,7 +204,7 @@ a {
         font-size: 4.5vw;
         width: 39vw;
         height: 6vw;
-        padding: 1vw 2vw;
+        padding: 1vw 2vw 2vw;
     }
 
     .shop-item-price {

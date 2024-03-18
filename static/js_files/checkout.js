@@ -12,3 +12,38 @@ function show_cart_summery() {
         document.getElementById('show-cart-summeryBtn').innerHTML = "نمایش دادن سبد خرید <i class='fa fa-arrow-down'></i>";
     }
 }
+// ======================================( edit cart item )==========================================================
+
+var product_id = '';
+
+function edit_cart_item(x) {
+    document.getElementById('edit-cart-item-container').style.display = 'flex';
+    product_id = x;
+}
+
+function edit_cart_item_close_btn() {
+    document.getElementById('edit-cart-item-container').style.display = 'none';
+}
+
+$(document).on('click', '#edit-sizeBtn', function (e){
+    e.preventDefault();
+    let token = $('input[name=csrfmiddlewaretoken]').val();
+    console.log('product_id', product_id)
+    $.ajax({
+        type: "POST",
+        url: "http://192.168.1.6:8000/shop/get_edited_id/",
+        data: {
+            'product_id': product_id,
+            csrfmiddlewaretoken: token,
+            // action: "post",
+        },
+
+        success: function (json) {
+            console.log('salam')
+        },
+
+        error: function (xhr, errmsg, err) {
+
+        },
+    })
+})

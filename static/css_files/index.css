@@ -2,7 +2,7 @@
 @import url('/static/css_files/footer.css');
 @import url('/static/css_files/slid-card.css');
 @import url('/static/css_files/messages.css');
-
+@import url('/static/css_files/pre_loading.css');
 
 
 * {
@@ -122,6 +122,7 @@ a {
 
 .swiper {
     border-radius: 1vw;
+    margin-bottom: 9vw;
 }
 
 .swiper-slide {
@@ -246,7 +247,10 @@ a {
 @media (max-width: 768px) {
     .sale-icon,
     .new-icon {
-        left: -0.5vw;
+        top: 0;
+        left: 3vw;
+        width: 9vw;
+        height: 9vw;
     }
 
     .swiper-new-products-p {
@@ -277,15 +281,6 @@ a {
     }
 }
 
-@media (max-width: 600px) {
-    .sale-icon,
-    .new-icon {
-        left: 3vw;
-        width: 9vw;
-        height: 9vw;
-    }
-}
-
 @media (min-width: 1200px) {
     .swiper-slide-item:hover .quick-add {
         max-height: 4vw;
@@ -311,8 +306,9 @@ a {
     position: absolute;
     right: 16vw;
     overflow: hidden;
-    width: 0;
-    transition: 0.3s;
+    width: 20vw;
+    transition: 2s;
+    opacity: 0;
 }
 
 .object-rightSide img {
@@ -322,14 +318,15 @@ a {
 }
 
 .object-leftSide {
-    width: 0;
+    width: 20vw;
+    opacity: 0;
     height: 24vw;
     position: absolute;
     left: 16vw;
     font-size: 2vw;
     display: flex;
     overflow: hidden;
-    transition: 0.3s;
+    transition: 2s;
 }
 
 .object-leftSide p {
@@ -401,5 +398,45 @@ a {
 @media (max-width: 768px) {
     .index-contact p {
         font-size: 3vw;
+    }
+
+    .content-aboutUs {
+        position: relative;
+        height: auto;
+        padding: 5vw 15vw 15vw;
+    }
+
+    .object-rightSide {
+        text-align: center;
+        position: relative;
+        right: 0;
+        width: 100%;
+    }
+
+    .object-rightSide img {
+        width: 30vw;
+        height: 30vw;
+        border-radius: 20vw;
+    }
+
+    .object-leftSide {
+        height: auto;
+        position: relative;
+        left: 0;
+        text-align: center;
+        width: 100%;
+    }
+
+    .object-leftSide p {
+        line-height: 8vw;
+        font-size: 5vw;
+    }
+
+    .aboutUs-text-border {
+        width: 4vw;
+        height: 100%;
+        background-image: linear-gradient(to bottom, #BBBBBB, #8F080F);
+        margin-right: 0;
+        display: none;
     }
 }
