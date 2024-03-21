@@ -1,0 +1,77 @@
+@import url('/static/css_files/headers-navbars.css');
+@import url('/static/css_files/slid-card.css');
+@import url('/static/css_files/footer.css');
+@import url('/static/css_files/messages.css');
+
+
+* {
+    margin: 0;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-weight: 600;
+}
+
+a {
+    text-decoration: none;
+}
+
+.white-space {
+    height: 9vw;
+    width: 100%;
+}
+
+body {
+    margin: 0;
+}
+
+/* ----------------------------------------------------------------- */
+
+.about-us-container div {
+    display: flex;
+    gap: 30vw;
+    width: 70%;
+    margin: 9vw auto;
+    align-items: center;
+    /*padding: 3vw;*/
+    opacity: 0;
+    transition: 2s;
+}
+
+#about-us-box-1 {
+    opacity: 100%;
+}
+
+.about-us-container p {
+    font-size: 2vw;
+    width: 30vw;
+    text-align: center;
+    color: rgb(196, 47, 47);
+}
+
+.about-us-container img {
+    width: 20vw;
+    height: 20vw;
+    border-radius: 15vw;
+}
+
+
+@media (max-width: 1025px) {
+    .about-us-container div {
+        flex-wrap: wrap;
+        gap: 0;
+        justify-content: center;
+        border-bottom: 1px solid rgb(196, 47, 47);
+        padding: 6vw 0;
+        /*margin: 10vww auto;*/
+    }
+
+    .about-us-container p {
+        display: block;
+        width: 100%;
+        font-size: 3vw;
+    }
+    
+    .about-us-container img {
+        width: 25vw;
+        height: 25vw;
+    }
+}

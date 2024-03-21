@@ -26,10 +26,11 @@ class SetPasswordView(View):
             user = get_object_or_404(MyUser, mobile=requested_user)
             user.set_password(cd['password'])
             user.save()
-            try:
-                guest_cart = AddCart.objects.filter(guest_session_id=request.session.session_key)
+            guest_cart = AddCart.objects.filter(guest_session_id=request.session.session_key)
+            if guest_cart:
                 for item in guest_cart:
                     item.customer = user
+                    item.guest_session_id = None
                     item.save()
                 login(request, user)
                 del request.session['user_mobile']
@@ -39,7 +40,7 @@ class SetPasswordView(View):
                     del request.session['payment_url']
                     return redirect(payment_url)
                 return redirect('index:go_home')
-            except AddCart.DoesNotExist:
+            elif not guest_cart:
                 del request.session['user_mobile']
                 messages.success(request, 'ثبت نام با موفقیت انجام شد'
                                           ' و حالا از بخش ورود میتوانید وارد حساب خود شوید', 'success')

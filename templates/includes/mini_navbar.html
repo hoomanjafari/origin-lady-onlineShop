@@ -32,7 +32,7 @@
             </div>
         {% endif %}
         <li><a href="#">ارتباط با ما</a></li>
-        <li><a href="#">درباره ما</a></li>
+        <li><a href="{% url 'about_us:about_us' %}">درباره ما</a></li>
         <li><a href="{% url 'index:go_home' %}">صفحه نخست</a></li>
         <li class="clothes-dropBtn">
             <p>لباس ها</p> <i class="fa fa-caret-down"></i>
@@ -89,11 +89,11 @@
     <nav>
         <button class="window-close-btn" onclick="closeMenuBar()"><i class="fa fa-window-close"></i></button>
         <ul>
-            <a href="{% url 'index:go_home' %}">
-                <div class="responsive-logo">
+            <div class="responsive-logo">
+                <a href="{% url 'index:go_home' %}">
                     <img alt="logo-image" src="/static/images/photo_2024-01-24_03-01-10.jpg">
-                </div>
-            </a>
+                </a>
+            </div>
             {% if request.user.is_authenticated %}
             <li>
                     <i class="fa fa-user"></i>
@@ -130,7 +130,7 @@
             </li>
             <li>
                 <i class="fa fa-star"></i>
-                <a href="#">درباره ما</a>
+                <a href="{% url 'about_us:about_us' %}">درباره ما</a>
             </li>
         </ul>
     </nav>

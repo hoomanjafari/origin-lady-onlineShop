@@ -364,7 +364,7 @@ a {
     text-align: center;
 }
 
-@media (max-width: 1026px) {
+@media (max-width: 1024px) {
     .header-onScroll {
         display: none;
     }
@@ -378,6 +378,10 @@ a {
         overflow-y: scroll;
     }
 
+    .nav-cart-quantity p {
+        right: 22vw;
+    }
+
     .responsive-header::-webkit-scrollbar {
         display: none;
         /* Safari and Chrome */
@@ -388,7 +392,15 @@ a {
     }
 
     .responsive-header li {
-        font-size: 6vw;
+        font-size: 4vw;
+    }
+
+    .responsive-clothes-dropBtn {
+        font-size: 4vw !important;
+    }
+
+    .responsive-clothes-dropDown-content a {
+        font-size: 4vw;
     }
 
     .search-box-open-btn {
@@ -400,12 +412,6 @@ a {
         width: 22vw;
         height: 22vw;
     }
-
-    .responsive-clothes-dropBtn,
-    .responsive-accessory-dropBtn {
-        font-size: 6vw !important;
-    }
-
 }
 
 @media (max-width: 768px) {

@@ -37,6 +37,21 @@ a {
     width: 39vw;
 }
 
+@media (max-width: 1024px) {
+    .border-middle-text p {
+        font-size: 4vw;
+        margin-top: -4vw;
+    }
+}
+
+@media (max-width: 768px) {
+    .border-middle-text p {
+        font-size: 5vw;
+        margin-top: -5vw;
+        width: 50vw;
+    }
+}
+
 /* =============================( content-cate-list )================================================ */
 
 .content {
@@ -87,6 +102,12 @@ a {
     padding-bottom: 3vw;
 }
 
+@media (max-width: 1024px) {
+    .cate-list-item {
+        font-size: 2vw;
+    }
+}
+
 @media (max-width: 768px) {
     .content {
         padding-top: 26vw;
@@ -111,10 +132,6 @@ a {
 
     .cate-list-p {
         font-size: 4vw;
-    }
-
-    .border-middle-text p {
-        margin-top: -3vw;
     }
 }
 
@@ -343,6 +360,59 @@ a {
     margin-right: 2vw;
 }
 
+@media (max-width: 1024px) {
+    .content-aboutUs {
+        position: relative;
+        height: auto;
+        padding: 5vw 15vw 15vw;
+    }
+
+    .object-rightSide {
+        text-align: center;
+        position: relative;
+        right: 0;
+        width: 100%;
+    }
+
+    .object-rightSide img {
+        width: 20vw;
+        height: 20vw;
+        border-radius: 20vw;
+    }
+
+    .object-leftSide {
+        height: auto;
+        position: relative;
+        left: 0;
+        text-align: center;
+        width: 100%;
+    }
+
+    .object-leftSide p {
+        line-height: 8vw;
+        font-size: 3vw;
+    }
+
+    .aboutUs-text-border {
+        width: 4vw;
+        height: 100%;
+        background-image: linear-gradient(to bottom, #BBBBBB, #8F080F);
+        margin-right: 0;
+        display: none;
+    }
+}
+
+@media (max-width: 768px) {
+    .object-leftSide p {
+        font-size: 4.5vw;
+    }
+
+    .object-rightSide img {
+        width: 30vw;
+        height: 30vw;
+    }
+}
+
 /* =============================( index-contact )================================================ */
 
 .index-contact {
@@ -398,45 +468,5 @@ a {
 @media (max-width: 768px) {
     .index-contact p {
         font-size: 3vw;
-    }
-
-    .content-aboutUs {
-        position: relative;
-        height: auto;
-        padding: 5vw 15vw 15vw;
-    }
-
-    .object-rightSide {
-        text-align: center;
-        position: relative;
-        right: 0;
-        width: 100%;
-    }
-
-    .object-rightSide img {
-        width: 30vw;
-        height: 30vw;
-        border-radius: 20vw;
-    }
-
-    .object-leftSide {
-        height: auto;
-        position: relative;
-        left: 0;
-        text-align: center;
-        width: 100%;
-    }
-
-    .object-leftSide p {
-        line-height: 8vw;
-        font-size: 5vw;
-    }
-
-    .aboutUs-text-border {
-        width: 4vw;
-        height: 100%;
-        background-image: linear-gradient(to bottom, #BBBBBB, #8F080F);
-        margin-right: 0;
-        display: none;
     }
 }

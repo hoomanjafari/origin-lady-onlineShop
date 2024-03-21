@@ -20,7 +20,7 @@ ZP_API_STARTPAY = f"https://{sandbox}.zarinpal.com/pg/StartPay/"
 description = "توضیحات مربوط به تراکنش را در این قسمت وارد کنید"
 currency = 'IRT'
 # CallbackURL should be change to real url
-CallbackURL = 'http://192.168.1.6:8000/payment/pay/verify/'
+CallbackURL = 'http://192.168.1.7:8000/payment/pay/verify/'
 
 
 class SendRequestView(View):

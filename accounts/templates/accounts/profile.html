@@ -69,7 +69,6 @@
                     </div>
                     <div class="display-inlineBlock">
                         <label>ادرس</label><br>
-{#                        <input class="profile-address-field" type="text" name="address">#}
                         <textarea class="profile-address-field" name="address" rows="3"></textarea>
                     </div><br>
                     <div class="display-inlineBlock">
@@ -99,8 +98,6 @@
 
             <p class="address-p">ادرس ها</p>
             <div class="address">
-
-
                 {% for address in user_address %}
                     <div class="address-info">
                         <p>{{ address.name }}</p>

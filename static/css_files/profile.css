@@ -378,23 +378,69 @@ label {
     .add-adress-box {
         padding: 3vw !important;
     }
+
+    .add-adress-box label {
+        font-size: 3vw;
+    }
+
+    .add-address-p {
+        font-size: 4vw;
+    }
+
+    .edit-profile-p {
+        font-size: 4vw;
+    }
+
+    .edit-profile-box {
+        width: 70vw;
+    }
+
+    .edit-profile-box label {
+        font-size: 3vw;
+    }
+
+    .editprofile-email-input {
+        width: 60vw !important;
+        padding: 2vw !important;
+        font-size: 3vw;
+    }
+
+    .edit-profile-box input {
+        font-size: 3vw;
+        padding: 2vw;
+        width: 30vw;
+    }
+
+    .no-address-yet-p {
+        font-size: 3vw !important;
+    }
+
     .profile-address-field {
         width: 60vw !important;
-        font-size: 4vw;
+        font-size: 3vw;
     }
 
     .select2-container .select2-selection--single {
         height: 8vw !important;
     }
 
+    .select2-results__option[aria-selected] {
+        font-size: 3vw;
+    }
+
+    .select-city {
+        width: 44vw !important;
+    }
+
     .select2-container--default .select2-selection--single .select2-selection__rendered {
         line-height: 7vw !important;
+        font-size: 3vw;
     }
 
     .add-adress-box input {
-        width: 20vw;
-        font-size: 4vw !important;
-        padding: 0.3vw;
+        width: 40vw;
+        font-size: 3vw !important;
+        padding: 2vw;
         border: 1px solid rgb(196, 196, 196);
         border-radius: 0.3vw;
         color: black;
@@ -402,6 +448,50 @@ label {
 
     .select2-search--dropdown .select2-search__field {
         font-size: 4vw;
+    }
+
+    .save-addressBtn {
+        font-size: 3vw;
+        padding: 0.5vw 3vw;
+    }
+
+    .email-name p,
+    .email-name label,
+    .address p,
+    .address label {
+        font-size: 3vw;
+        font-weight: 600;
+    }
+
+    .edit-profile-closeBtn,
+    .add-address-box-closeBtn {
+        margin-right: 3vw;
+        font-size: 4vw;
+    }
+
+    .change_password {
+        border-radius: 1.5vw;
+        padding: 0.5vw 1vw 1vw;
+        font-size: 3vw;
+    }
+    .edit-profileBtn {
+        background: none;
+        border: none;
+        color: #349DDF;
+        font-size: 5vw;
+        cursor: pointer;
+        padding-left: 2vw;
+    }
+
+    .add-addressBtn,
+    .edit-profile-saveBtn {
+        font-size: 2.5vw;
+        padding: 0.5vw 3vw 0;
+    }
+
+    .address-p,
+    .profile-p {
+        font-size: 3vw;
     }
 }
 
@@ -424,7 +514,8 @@ label {
     }
 
     .change_password {
-        padding: 0 6vw;
+        padding: 1vw 6vw;
+        font-size: 4vw;
         border-radius: 1.5vw;
     }
 

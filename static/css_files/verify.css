@@ -202,7 +202,7 @@
     }
 
     .otp-input {
-        width: 10px !important;
+        width: 20px !important;
         border: none;
         border-radius: 0 !important;
         border-bottom: 3px solid rgba(0, 0, 0, 0.5);

@@ -214,7 +214,7 @@ a {
     width: 9vw;
 }
 
-@media (max-width: 1025px) {
+@media (max-width: 1024px) {
     .checkout-container {
         display: block;
         margin: 0;
@@ -244,6 +244,7 @@ a {
 
     .show-cart-summery-btn {
        max-height: 200vw;
+        transition: 2s;
     }
 
     .checkout-cart-item-empty p {
@@ -285,6 +286,17 @@ a {
         font-weight: 600;
         font-size: 4vw !important;
         height: 9vw !important;
+
+    }
+
+    .select2-selection__rendered {
+        line-height: 7vw !important;
+        font-size: 3vw;
+    }
+
+    .select2-search__field {
+        font-size: 3vw;
+        padding: 1vw !important;
     }
 
     .checkout-paymentBtn2 a {
