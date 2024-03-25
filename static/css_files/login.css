@@ -103,6 +103,8 @@
     text-decoration: none;
     color: #6c6cff;
     font-weight: 600;
+    width: 12vw;
+    margin: 0 auto;
 }
 
 .forgot-password:hover {
@@ -160,5 +162,6 @@
 
     .forgot-password {
         font-size: 3vw;
+        width: 26vw;
     }
 }

@@ -19,14 +19,21 @@
     <div class="content-shop">
         <div class="shop-product-container">
             <div class="filter-by">
-                <p class="sort-by-p">ترتیب نمایش</p>
-                <select>
-                    <option>item one</option>
-                    <option>item two</option>
-                    <option>item three</option>
-                </select>
+{#                <p class="sort-by-p">ترتیب نمایش</p>#}
+                <form method="get">
+                    <select name="selected" id="id_selected">
+                        <option class="filter-by-option selected-default" value="به ترتیبه ...">{{ default }}</option>
+                        <option value="-added_time">جدید ترین ها</option>
+                        <option value="added_time">قدیمی ترین ها</option>
+                        <option value="item_price">ارزان ترین ها</option>
+                        <option value="-item_price">گران ترین ها</option>
+                        <option value="discount">تخفیف خورده ها</option>
+                    </select>
+                    <button type="submit" id="selected-btn" hidden="hidden"></button>
+                </form>
             </div>
                 <div class="shop-product">
+                    {% load humanize %}
                     {% for i in tshirt %}
                         <div class="shop-item">
                             <a href="{% url 'shop:product_details' pk=i.id %}">
@@ -35,10 +42,21 @@
                                     <a href="{% url 'shop:product_details' pk=i.id %}">جزئیات رنگ ها و سایز ها</a>
                                 </div>
                                 <h1>{{ i.item_name }}</h1>
-                                <p class="shop-item-price">
-                                    <span>تومان</span>
-                                    {{ i.item_price }}
-                                </p>
+                                {% if i.discount is True %}
+                                    <s class="shop-item-price">
+                                        <span>تومان</span>
+                                        {{ i.item_price|intcomma }}
+                                    </s>
+                                    <p class="shop-item-price">
+                                        <span>تومان</span>
+                                        {{ i.item_price_on_discount|intcomma }}
+                                    </p>
+                                {% elif i.discount is not True %}
+                                    <p class="shop-item-price">
+                                        <span>تومان</span>
+                                        {{ i.item_price|intcomma }}
+                                    </p>
+                                {% endif %}
                             </a>
                         </div>
                     {% endfor %}

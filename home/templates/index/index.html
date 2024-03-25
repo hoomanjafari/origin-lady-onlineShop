@@ -93,6 +93,7 @@
             <!-- Additional required wrapper -->
             <div class="swiper-wrapper">
                 <!-- Slides -->
+                {% load humanize %}
                 {% for item in new_products %}
                     <div class="swiper-slide">
                         <div class="swiper-slide-item">
@@ -107,7 +108,7 @@
                                 <h1>{{ item.item_name }}</h1>
                                 <p>
                                     تومان
-                                    {{ item.item_price }}
+                                    {{ item.item_price|intcomma }}
                                 </p>
                             </a>
                         </div>
@@ -153,6 +154,7 @@
                 <!-- Additional required wrapper -->
                 <div class="swiper-wrapper">
                     <!-- Slides -->
+                    {% load humanize %}
                     {% for item in discounted_clothes %}
                         <div class="swiper-slide">
                             <div class="swiper-slide-item">
@@ -167,11 +169,11 @@
                                     <h1>{{ item.item_name }}</h1>
                                     <s>
                                         تومان
-                                        {{ item.item_price }}
+                                        {{ item.item_price|intcomma }}
                                     </s>
                                     <p class="index-price_on_discount">
                                         تومان
-                                        {{ item.item_price_on_discount }}
+                                        {{ item.item_price_on_discount|intcomma }}
                                     </p>
                                 </a>
                             </div>

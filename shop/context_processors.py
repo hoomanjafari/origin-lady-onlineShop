@@ -9,7 +9,7 @@ def cart_detail(request):
         total_price = 0
         for i in cart_items:
             quantity += int(i.selected_quantity)
-            total_price += int(i.total_price)
+            total_price += int(i.total_price.replace(',', ''))
         return {'cart_items': cart_items, 'cart_items_count': quantity, 'total_price': total_price}
     else:
         cart_items = AddCart.objects.filter(guest_session_id=request.session.session_key)
@@ -17,7 +17,7 @@ def cart_detail(request):
         total_price = 0
         for i in cart_items:
             quantity += int(i.selected_quantity)
-            total_price += int(i.total_price)
+            total_price += int(i.total_price.replace(',', ''))
         return {'cart_items': cart_items, 'cart_items_count': quantity, 'total_price': total_price}
 
 

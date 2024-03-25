@@ -26,7 +26,15 @@
             <h4>
                 {{ product.item_info|linebreaks }}
             </h4>
-            <p class="padding-top">تومان<span class="product-price ">{{ product.item_price }}</span></p>
+            {% load humanize %}
+            {% if off_product %}
+                {% for off in off_product %}
+                    <s class="padding-top">تومان<span>{{ off.item_price|intcomma }}</span></s>
+                    <p>تومان<span class="product-price">{{ off.item_price_on_discount|intcomma }}</span></p>
+                {% endfor %}
+            {% elif not off_product %}
+                <p class="padding-top">تومان<span class="product-price">{{ product.item_price|intcomma }}</span></p>
+            {% endif %}
             <div id="product-colores-container">
                 {#  color boxes will apear here #}
                 {% for color in colores %}

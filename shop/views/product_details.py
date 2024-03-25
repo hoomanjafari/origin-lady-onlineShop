@@ -11,17 +11,19 @@ from accounts.models import MyUser
 class ProductDetails(View):
     def get(self, request, **kwargs):
         product = get_object_or_404(AllClothes, pk=kwargs['pk'])
+        off_product = AllClothes.objects.filter(pk=kwargs['pk'], discount=True)
         colores = product.available_colores.all()
         url_data = product.main_image.url
         sizes = product.available_sizes.all()
 
         return render(request, 'shop/product-details.html', {
-            'product': product, 'colores': colores, 'url_data': url_data, 'sizes': sizes,
+            'product': product, 'colores': colores, 'url_data': url_data, 'sizes': sizes, 'off_product': off_product
         })
 
     def post(self, request, **kwargs):
         form = AddCartForm(self.request.POST)
         product = get_object_or_404(AllClothes, pk=kwargs['pk'])
+        off_product = AllClothes.objects.filter(pk=kwargs['pk'], discount=True)
         colores = product.available_colores.all()
         url_data = product.main_image.url
         sizes = product.available_sizes.all()
@@ -66,6 +68,7 @@ class ProductDetails(View):
         messages.error(request, 'لطفا رنگ و سایز مورد نظرتون رو انخاب کنبد (با کلیک کردن بر روی ان ها)', 'danger')
         return render(request, 'shop/product-details.html', {
             'product': product, 'colores': colores, 'url_data': url_data, 'sizes': sizes, 'form': form,
+            'off_product': off_product
         })
 
 

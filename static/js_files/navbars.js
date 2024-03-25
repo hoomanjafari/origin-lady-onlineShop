@@ -70,6 +70,13 @@ function closeMenuBar() {
   document.getElementById('bg-dark').style.display = 'none';
 }
 
+window.addEventListener('click', (e) => {
+  if (e.target.matches('#bg-dark')) {
+    document.getElementById('responsive-header').style.width = '0';
+    document.getElementById('bg-dark').style.display = 'none';
+  }
+})
+
 /* =============================( slid-card )================================================ */
 
 function SlidCardCloseBtn() {
@@ -77,6 +84,14 @@ function SlidCardCloseBtn() {
   document.getElementById('slid-card-box').style.width = '0';
   document.getElementById('slid-card-container').style.visibility = 'hidden';
 }
+
+window.addEventListener('click', (e) => {
+  if (e.target.matches('#slid-card-container')) {
+    document.getElementById('slid-card-box').style.width = '0';
+    document.getElementById('slid-card-container').style.visibility = 'hidden';
+  }
+})
+
 
 function SlidCardOpenBtn() {
   var isDesktop = screen.width >= 1024;

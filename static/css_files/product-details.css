@@ -80,6 +80,7 @@
     padding: 1vw 0;
     background-image: linear-gradient(to right, #BBBBBB, #B08F90, #A56265, #9A353A);
     border: none;
+    border-radius: 1vw;
     color: black;
     cursor: pointer;
 }

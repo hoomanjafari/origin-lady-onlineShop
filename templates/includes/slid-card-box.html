@@ -3,6 +3,7 @@
         <button class="slid-card-closeBtn" onclick="SlidCardCloseBtn()"><i class="fa fa-window-close"></i></button>
         <p class="slid-card-p">سبد خرید شما</p>
         <p class="slid-card-item-quantity"> تعداد محصولات در سبد کالا : <span>{{ cart_items_count }}</span> عدد</p>
+        {% load humanize %}
         {% for item in cart_items %}
             <div class="card-item">
                 <div class="cart_time_img">
@@ -15,7 +16,12 @@
                     <p>رنگ :<span>{{ item.selected_color }}</span></p>
                     <p>تعداد :<span>{{ item.selected_quantity}}</span></p><br>
                     <p>قیمت هر واحد</p>
-                    <p>تومان<span>{{ item.selected_product.item_price}}</span></p>
+                    {% if item.selected_product.discount is True %}
+                        <s>تومان<span>{{ item.selected_product.item_price|intcomma}}</span></s>
+                        <p>تومان<span>{{ item.selected_product.item_price_on_discount|intcomma}}</span></p>
+                    {% elif item.selected_product.discount is not True %}
+                        <p>تومان<span>{{ item.selected_product.item_price|intcomma}}</span></p>
+                    {% endif %}
                 </div>
             </div>
         {% empty %}
@@ -25,7 +31,7 @@
             <div class="card-checkout">
                 <div>
                     <p class="cart-total-price-p">جمع کل :</p>
-                    <p class="cart-total-price">{{ total_price }} تومان</p>
+                    <p class="cart-total-price">{{ total_price|intcomma }} تومان</p>
                 </div>
                 <a href="{% url 'shop:checkout' %}">ادامه مراحل پرداخت</a><br>
                 <button class="second-slid-card-closeBtn" onclick="SlidCardCloseBtn()">بستن پنجره سبد خرید</button>

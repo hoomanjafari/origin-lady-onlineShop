@@ -8,7 +8,7 @@ var totalPrice = document.getElementById('total-price');
 totalPrice.value = productPrice;
 
 document.querySelector('.quantity-input').addEventListener('change', (event) => {
-    totalPrice.value = event.target.value * productPrice;
+    totalPrice.value = (event.target.value * productPrice.replace(',', '')).toLocaleString();
 })
 
 document.querySelector('#plus-btn').addEventListener('click', () => {

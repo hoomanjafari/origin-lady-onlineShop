@@ -12,3 +12,12 @@ class AddCartForm(forms.Form):
 class EditItemCartForm(forms.Form):
     edit_quantity = forms.CharField(required=False)
     edit_size = forms.CharField(required=False)
+
+
+class ProductSortBy(forms.Form):
+    CHOICES = (
+        ('ترتیب نمایش', 'ترتیب نمایش'), ('-added_time', 'جدید ترین ها'), ('added_time', 'قدیمی ترین ها'),
+        ('item_price', 'ارزان ترین ها'), ('-item_price', 'گران ترین ها'), ('discount', 'تخفیف خورده ها')
+    )
+
+    selected = forms.ChoiceField(choices=CHOICES, label='')

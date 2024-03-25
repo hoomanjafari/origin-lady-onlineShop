@@ -22,7 +22,7 @@ class VerifyRequestView(View):
         phone = request.user.mobile
         amount = 0
         for person in customer:
-            amount += int(person.total_price)
+            amount += int(person.total_price.replace(',', ''))
         data = {
             "MerchantID": settings.MERCHANT,
             "Amount": amount,

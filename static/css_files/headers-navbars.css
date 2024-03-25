@@ -427,6 +427,10 @@ a {
         display: block;
     }
 
+    .nav-cart-quantity p {
+        right: 23vw;
+    }
+
     .responsive-header li {
         font-size: 5vw;
     }

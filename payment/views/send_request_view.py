@@ -29,7 +29,7 @@ class SendRequestView(View):
         phone = request.user.mobile
         amount = 0
         for person in customer:
-            amount += int(person.total_price)
+            amount += int(person.total_price.replace(',', ''))
         print('phone is ', phone)
         data = {
             "MerchantID": settings.MERCHANT,

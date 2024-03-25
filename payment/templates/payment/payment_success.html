@@ -20,9 +20,9 @@
 
             <p class="p-label">کد تراکنش : </p>
             <p>{{ payment.track_id }}</p><br>
-
+            {% load humanize %}
             <p class="p-label">مبلغ پرداخت شده : </p>
-            <p> تومان{{ payment.total_paid }}</p><br>
+            <p> تومان{{ payment.total_paid|intcomma }}</p><br>
 
             <p class="pay-thanks-message">
                 از این که فروشگاه اورجین لیدی رو انتخاب کردید از شما سپاس گزاریم<br>

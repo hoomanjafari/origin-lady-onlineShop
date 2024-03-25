@@ -191,6 +191,18 @@ a {
     color: #8F080F;
 }
 
+.checkout-go-profile a {
+    color: #349DDF;
+}
+
+.checkout-go-profile a:hover {
+    opacity: 60%;
+}
+
+.checkout-go-profile p {
+    color: crimson;
+}
+
 /*=========================================( edit-cart-item )===========================================*/
 
 .edit-cart-item-container {
@@ -358,5 +370,10 @@ a {
     }
     .white-space {
         height: 26vw;
+    }
+
+    .checkout-go-profile p {
+        color: crimson;
+        font-size: 3.7vw !important;
     }
 }

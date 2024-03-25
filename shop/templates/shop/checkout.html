@@ -48,6 +48,7 @@
                 <p class="responsive-checkout-total-price">جمع کل :{{ total_price }} تومان</p>
             </div>
             <div class="checkout-customer-cart-container" id="checkout-customer-cart-container">
+                {% load humanize %}
                 {% for item in cart_items %}
                     <div class="checkout-customer-cart-item">
                         <div class="checkout-customer-cart-item-img">
@@ -59,9 +60,21 @@
                             <p class="checkout-customer-cart-item-details-price ">
                                 قیمت هر واحد :
                             </p>
-                            <p class="checkout-customer-cart-item-details-price ">
-                                {{ item.selected_product.item_price }}
-                                تومان</p>
+                            {% if item.selected_product.discount is True %}
+                                <s class="checkout-customer-cart-item-details-price ">
+                                    {{ item.selected_product.item_price|intcomma }}
+                                    تومان
+                                </s>
+                                <p class="checkout-customer-cart-item-details-price ">
+                                    {{ item.selected_product.item_price_on_discount|intcomma }}
+                                    تومان
+                                </p>
+                            {% elif item.selected_product.discount is not True %}
+                                <p class="checkout-customer-cart-item-details-price ">
+                                    {{ item.selected_product.item_price|intcomma }}
+                                    تومان
+                                </p>
+                            {% endif %}
                             <p>رنگ :<span>{{ item.selected_color }}</span></p>
                             <p>سایز :<span>{{ item.selected_size }}</span></p>
                             <p class="checkout-customer-cart-item-details-quantity">
@@ -79,7 +92,7 @@
                         <p>( هیچ محصولی به سبد خرید شما افزوده نشده )</p>
                     </div>
                 {% endfor %}
-                <p class="checkout-total-price">جمع کل :{{ total_price }} تومان</p>
+                <p class="checkout-total-price">جمع کل :{{ total_price|intcomma }} تومان</p>
             </div>
 
             <div class="checkout-customer-address-info">
@@ -116,7 +129,11 @@
                             <p>{{ address.city }}</p>
                             <p>{{ address.address }}</p><br>
                             <p><span>کد پستی</span></p>
-                            <p>{{ address.postal_code }}</p>
+                            <p>{{ address.postal_code }}</p><br>
+                            <div class="checkout-go-profile">
+                                <p>( برای تغییر ادرس به <a href="{% url 'accounts:profile' pk=request.user.id %}">حساب کاربری</a> خود مراجعه کنید )</p>
+
+                            </div>
                             <div class="checkout-paymentBtn2">
                                 <a href="{% url 'payment:payment' %}">اتصال به درگاه پرداخت</a>
                             </div>

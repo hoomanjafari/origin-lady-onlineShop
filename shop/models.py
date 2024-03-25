@@ -58,7 +58,7 @@ class AddCart(models.Model):
     selected_color = models.CharField(max_length=22)
     selected_size = models.CharField(max_length=22)
     selected_quantity = models.CharField(max_length=4)
-    total_price = models.CharField(max_length=9)
+    total_price = models.CharField(max_length=22)
     order_time = models.DateTimeField(auto_now_add=True)
     is_paid = models.BooleanField(default=False)
 
